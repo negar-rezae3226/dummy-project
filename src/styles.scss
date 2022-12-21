@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("../src/assets/font/Vazir/Vazirmatn-font-face.css");
+
+$background: #f4f4f9;
+
+body {
+  font-family: Vazirmatn;
+  margin: 0px;
+  background-color: #f4f4f9;
+  direction: rtl;
+}

@@ -1,0 +1,19 @@
+.navbar-logo-style{
+    height: 25px;
+    width: 120px;
+}
+.nav-pills{
+    --bs-nav-pills-border-radius: unset;
+}
+.sidebar-text-style{
+    direction: ltr;
+    text-align: end;
+    font-size: 18px;
+    // padding-right: 10px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: unset;
+}
+li:hover {
+    background-color: darkred;
+  }
