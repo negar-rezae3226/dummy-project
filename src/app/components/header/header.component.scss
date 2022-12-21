@@ -18,9 +18,10 @@ $gray-color: #6c757d;
     background-color: $mellow-gray-color;
     border: unset;
     border-radius: 15px;
+    // height: 30px;
 }
 .search-icone-style{
-    color: #2d275e;
+    color: $gray-color;
     margin-right: 13px;
     font-size: x-large;
     cursor: pointer;
@@ -37,4 +38,23 @@ $gray-color: #6c757d;
 }
 .header-login-style{
     padding: 0px 5px ;
+    cursor: pointer;
+}
+.bell-style{
+    border: 1px solid $mellow-gray-color;
+    padding: 10px 15px 10px 10px;
+    border-radius: 40px;
+    margin-left: 20px;
+    background-color: #e9ecef;
+    height:50px;
+    width: 50px;
+    font-size: larger;
+    color: #5b5c5d;
+    cursor: pointer;
+}
+
+.flag-iran{
+    width: 30px;
+    height:26px;
+    padding-left: 10px;
 }

@@ -10,7 +10,7 @@ import { LoginModule } from './login/login.module';
     LoginComponent
   ],
   imports: [
-    LoginModule,
+    // LoginModule,
     CommonModule
   ]
 })
