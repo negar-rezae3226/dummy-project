@@ -1,0 +1,40 @@
+$header-bg-color: #fdfffc;
+$mellow-gray-color:#e9ecef;
+$gray-color: #6c757d;
+
+.navbar-style{
+    background-color: $header-bg-color;
+    // padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+
+
+.input-search-style{
+    padding: 15px;
+    background-color: $mellow-gray-color;
+    border: unset;
+    border-radius: 15px;
+}
+.search-icone-style{
+    color: $gray-color;
+    margin-right: 13px;
+    font-size: x-large;
+    cursor: pointer;
+}
+.login-signin-styles{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $mellow-gray-color;
+    border-radius: 10px;
+    padding-top: 13px;
+}
+.header-signin-style{
+    padding: 0px 5px ;
+}
+.header-login-style{
+    padding: 0px 5px ;
+}
