@@ -5,6 +5,9 @@
 .nav-pills{
     --bs-nav-pills-border-radius: unset;
 }
+.sidebar-style{
+    background-color: #342c5f;
+}
 .sidebar-text-style{
     direction: ltr;
     text-align: end;
@@ -15,5 +18,5 @@
     background-color: unset;
 }
 li:hover {
-    background-color: darkred;
+    background-color: #1a1631;
   }
