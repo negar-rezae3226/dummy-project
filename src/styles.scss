@@ -4,11 +4,16 @@
 $background: #f4f4f9;
 
 body {
-  font-family: Vazirmatn;
+  font-family: Vazirmatn !important;
   margin: 0px;
   background-color: #f4f4f9;
   direction: rtl;
 }
+.app-header-style{
+  width: 100%;
+}
+.app-slidebar-style{
+  height: 757px;
+}
 
-html, body { height: 100%; }
-body { margin: 0; }
+
