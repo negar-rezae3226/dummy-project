@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LoginUser } from './loginUser.interface';
 import { LoginService } from 'src/app/services/login.service';
 import { LocalStorageService } from 'src/app/services/LocalStorage.service';
+import { LoginUser } from 'src/app/models/loginUser.interface';
 
 @Component({
   selector: 'app-login',
