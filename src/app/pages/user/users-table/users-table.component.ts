@@ -26,6 +26,6 @@ export class UsersTableComponent implements OnInit {
     this.selectedId = this.route.snapshot.params['id'];
   }
   onUserRedirect() {
-    this.router.navigate(['user/create']);
+    this.router.navigate(['create'], {relativeTo:this.route});
   }
 }

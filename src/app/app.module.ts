@@ -14,7 +14,7 @@ import { LoginModule } from './pages/account/login/login.module';
 import { UsersManagementComponent } from './pages/users-management/users-management.component';
 import { UserComponent } from './pages/user/user.component';
 import { UserCreateComponent } from './pages/user/user-create/user-create.component';
-import { UserEditComponent } from './pages/user/user-edite/user-edite.component';
+import { UserEditComponent } from './pages/user/user-edit/user-edit.component';
 import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
 import { UserPostsComponent } from './pages/user/user-posts/user-posts.component';
 import { ProductsManagementComponent } from './pages/products-management/products-management.component';
