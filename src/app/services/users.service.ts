@@ -15,4 +15,11 @@ export class UsersService {
     return fetch(this.apiUrl + 'users');
   }
 
+  deleteUser(userId:string){
+   return fetch(this.apiUrl +'users/'+`${userId}`, {
+      method: "DELETE",
+    })
+  }
+  
+
 }

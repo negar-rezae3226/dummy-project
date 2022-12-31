@@ -25,7 +25,7 @@
                         </tr>
                       </thead>
                     <tbody class="tbody-color">
-                        <tr *ngFor="let user of usersList">
+                        <tr *ngFor="let user of usersList" [attr.id]="user.id">
                             <td>{{user.firstName}}</td>
                             <td>{{user.lastName}}</td>
                             <td>{{user.username}}</td>
@@ -35,14 +35,14 @@
                             <td>{{user.phone}}</td>
                             <td>{{user.email}}</td>
                             <td>
-                                <a routerLinkActive="active" routerLink="">
-                                <i class="mdi mdi-post-outline post" ></i>
-                                </a>
+                                <!-- <a routerLinkActive="active" routerLink="">
+                                <i class="mdi mdi-post-outline post"></i>
+                                </a> -->
                                 <a routerLinkActive="active" routerLink="">
                                 <i class="mdi mdi-account-edit edit"></i>
                                 </a>
-                                <a routerLinkActive="active" routerLink="">
-                                <i class="mdi mdi-delete delete"></i>
+                                <a>
+                                <i class="mdi mdi-delete delete" (click)="OnDeleteUser(user)"></i>
                                 </a>
                             </td>
                         </tr>

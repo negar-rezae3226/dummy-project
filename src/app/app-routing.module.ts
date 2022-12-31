@@ -16,12 +16,8 @@ import { UserCreateComponent } from './pages/user/user-create/user-create.compon
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'users-management', component: UsersManagementComponent },
-    {path: 'user', component: UserComponent, children: [
-            {
-                path: 'create',
-                component: UserCreateComponent,
-            },
+    // { path: 'users-management', component: UsersManagementComponent },
+    {path: 'users-management', component: UsersManagementComponent, children: [
             {
                 path: 'edit/:id',
                 component: UserEditComponent,
@@ -36,6 +32,7 @@ const routes: Routes = [
             }
         ]
     },
+    {path: 'users-management/create', component: UserCreateComponent},
 
     { path: 'products-management', component: ProductsManagementComponent },
     { path: 'login', component:LoginComponent },
