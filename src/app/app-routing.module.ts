@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersManagementComponent } from './pages/users-management/users-management.component';
 import { UserComponent } from './pages/user/user.component';
-import { UserEditComponent } from './pages/user/user-edite/user-edite.component';
+import { UserEditComponent } from './pages/user/user-edit/user-edit.component';
 import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
 import { UserPostsComponent } from './pages/user/user-posts/user-posts.component';
 import { ProductsManagementComponent } from './pages/products-management/products-management.component';
