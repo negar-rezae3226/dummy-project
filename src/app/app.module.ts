@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { ProductsManagementComponent } from './pages/products-management/product
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UsersTableComponent } from './pages/user/users-table/users-table.component';
-import { UserFormComponent } from './pages/user/user-form/user-form.component';
+import UserFormComponent from './pages/user/user-form/user-form.component';
+import { UserModule } from './pages/user/user.module';
 
 
 
@@ -48,7 +50,10 @@ import { UserFormComponent } from './pages/user/user-form/user-form.component';
     BrowserAnimationsModule,
     SharedModule,
     LoginModule,    
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule,
+    ReactiveFormsModule,
+    FormsModule
     
   ],
   providers: [],

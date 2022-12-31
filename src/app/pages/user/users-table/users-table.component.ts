@@ -10,22 +10,31 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UsersTableComponent implements OnInit {
   usersList: User[] = [];
-  selectedId:number= 0;
+  deleteProduct: User[] = [];
+  element: any;
 
-  constructor(private userService:UsersService , private router: Router , private route:ActivatedRoute){}
+  selectedId: number = 0;
+
+  constructor(private userService: UsersService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    
     this.userService.getAllUsers()
-    .then((res) => res.json())
-    .then((json) => {
-      this.usersList = json.users;
-      console.log(this.usersList);
-    });
+      .then((res) => res.json())
+      .then((json) => {
+        this.usersList = json.users;
+        console.log(this.usersList);
+      });
 
     this.selectedId = this.route.snapshot.params['id'];
   }
   onUserRedirect() {
-    this.router.navigate(['create'], {relativeTo:this.route});
+    this.router.navigate(['users-management/create']);
+  }
+
+  OnDeleteUser(user:any) {
+
+    this.element = document.getElementById(user.id) as HTMLElement;
+    this.element.parentElement.removeChild(this.element);
   }
 }
