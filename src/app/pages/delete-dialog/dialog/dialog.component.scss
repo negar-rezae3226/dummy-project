@@ -1,0 +1,28 @@
+$white:white;
+$green:#01bf01;
+$red:#eb3c3f;
+$alert-icon: rgb(250, 104, 104);
+
+
+.dialog-style{
+    padding: 20px;
+}
+.alert-icon-style{
+    text-align: center;
+    font-size: 50px;
+    color: $alert-icon;
+}
+.question-style{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 20px;
+}
+.yes-button-style{
+    background-color: $green;
+    color:$white;
+}
+.no-button-style{
+    background-color: $red;
+    color:$white;
+
+}
