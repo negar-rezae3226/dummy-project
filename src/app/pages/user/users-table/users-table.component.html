@@ -36,9 +36,8 @@
                             <td>{{user.email}}</td>
                             <td>
                                 <button mat-button class="mdi mdi-account-edit edit" matTooltip="ویرایش"
-                                    matTooltipClass="example-tooltip-uppercase" routerLinkActive="active"
-                                    routerLink=""></button>
-                                <app-delete-dialog></app-delete-dialog>
+                                    matTooltipClass="example-tooltip-uppercase" routerLinkActive="active" routerLink=""></button>
+                                <app-delete-dialog (newItemEvent)="OnDeleteUser(user)"></app-delete-dialog>
                             </td>
                         </tr>
                     </tbody>

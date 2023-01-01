@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, Input } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -7,6 +7,19 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent {
-  constructor(public dialogRef: MatDialogRef<DialogComponent>) { }
+
+
+  constructor(public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogComponent,) {
+
+  }
+
+  onConfirm(): void {
+    this.dialogRef.close(true);
+  }
+
+  onCancel() {
+    this.dialogRef.close(false);
+  }
 
 }

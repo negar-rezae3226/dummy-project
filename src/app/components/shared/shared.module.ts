@@ -9,6 +9,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonToggleModule,
     MatBadgeModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   exports:[
     MatAutocompleteModule,
@@ -29,7 +31,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonToggleModule,
     MatBadgeModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   
   ],
   declarations: []

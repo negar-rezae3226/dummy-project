@@ -6,7 +6,7 @@
         آیا از حذف اطمینان دارید؟
     </div>
     <div mat-dialog-actions class="d-flex justify-content-center">
-        <button mat-raised-button mat-dialog-close class="no-button-style">خیر</button>
-        <button mat-raised-button  mat-dialog-close cdkFocusInitial class="yes-button-style">بله</button>
+        <button (click)="onCancel()" mat-raised-button mat-dialog-close class="no-button-style">خیر</button>
+        <button (click)="onConfirm()" mat-raised-button  mat-dialog-close cdkFocusInitial class="yes-button-style">بله</button>
     </div>
 </div>
