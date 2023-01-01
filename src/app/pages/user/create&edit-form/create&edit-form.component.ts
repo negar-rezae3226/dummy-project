@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss']
+  selector: 'create-edit-form',
+  templateUrl: './create&edit-form.component.html',
+  styleUrls: ['./create&edit-form.component.scss']
 })
 export default class UserFormComponent implements OnInit {
   inputForm: FormGroup = new FormGroup('');

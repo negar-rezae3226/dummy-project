@@ -22,8 +22,10 @@ import { ProductsManagementComponent } from './pages/products-management/product
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UsersTableComponent } from './pages/user/users-table/users-table.component';
-import UserFormComponent from './pages/user/user-form/user-form.component';
+import UserFormComponent from './pages/user/create&edit-form/create&edit-form.component';
 import { UserModule } from './pages/user/user.module';
+import { DeleteDialogComponent} from './pages/delete-dialog/delete-dialog.component';
+import { DialogComponent } from './pages/delete-dialog/dialog/dialog.component';
 
 
 
@@ -43,7 +45,9 @@ import { UserModule } from './pages/user/user.module';
     NotFoundComponent,
     DashboardComponent,
     UsersTableComponent,
-    UserFormComponent
+    UserFormComponent,
+    DeleteDialogComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

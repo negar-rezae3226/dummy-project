@@ -1,9 +1,9 @@
 <div class="card mb-3 card-users-style">
     <div class="card-header card-header-style">
         <p>کاربران</p>
-        <button type="button" class="btn create-user-button " (click)="onUserRedirect()">
-                <i class="mdi mdi-account-plus icon-style"></i>
-                کاربر جدید
+        <button type="button" class="btn create-user-button d-flex" (click)="onUserRedirect()">
+            <i class="mdi mdi-plus-thick icon-style"></i>
+            <p>جدید</p>
         </button>
     </div>
     <div class="card-body table-body">
@@ -12,18 +12,18 @@
                 <table class="table  users-table-style">
                     <thead class="thead-color">
                         <tr>
-                          <th scope="col">نام</th>
-                          <th scope="col">نام خانوادگی</th>
-                          <th scope="col">نام کاربری</th>
-                          <th scope="col">رمز عبور</th>
-                          <th scope="col">سن</th>
-                          <th scope="col">جنسیت</th>
-                          <th scope="col">شماره تلفن</th>
-                          <th scope="col">ایمیل</th>
-                          <th scope="col"></th>
+                            <th scope="col">نام</th>
+                            <th scope="col">نام خانوادگی</th>
+                            <th scope="col">نام کاربری</th>
+                            <th scope="col">رمز عبور</th>
+                            <th scope="col">سن</th>
+                            <th scope="col">جنسیت</th>
+                            <th scope="col">شماره تلفن</th>
+                            <th scope="col">ایمیل</th>
+                            <th scope="col"></th>
 
                         </tr>
-                      </thead>
+                    </thead>
                     <tbody class="tbody-color">
                         <tr *ngFor="let user of usersList" [attr.id]="user.id">
                             <td>{{user.firstName}}</td>
@@ -35,15 +35,10 @@
                             <td>{{user.phone}}</td>
                             <td>{{user.email}}</td>
                             <td>
-                                <!-- <a routerLinkActive="active" routerLink="">
-                                <i class="mdi mdi-post-outline post"></i>
-                                </a> -->
-                                <a routerLinkActive="active" routerLink="">
-                                <i class="mdi mdi-account-edit edit"></i>
-                                </a>
-                                <a>
-                                <i class="mdi mdi-delete delete" (click)="OnDeleteUser(user)"></i>
-                                </a>
+                                <button mat-button class="mdi mdi-account-edit edit" matTooltip="ویرایش"
+                                    matTooltipClass="example-tooltip-uppercase" routerLinkActive="active"
+                                    routerLink=""></button>
+                                <app-delete-dialog></app-delete-dialog>
                             </td>
                         </tr>
                     </tbody>
