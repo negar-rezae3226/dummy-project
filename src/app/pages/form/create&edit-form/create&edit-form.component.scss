@@ -25,19 +25,20 @@ border-color: #cdb4db;
 box-shadow: 0 0 0 0.25rem #e6d8ef;
 }
 
-input.ng-invalid.ng-touched{
-    border: 1px solid red;
-    box-shadow: 0 0 0 0.25rem rgb(255, 215, 215);
-}
-select.ng-invalid.ng-touched{
-    border: 1px solid red;
-    box-shadow: 0 0 0 0.01rem rgb(255, 215, 215);
-}
+// input.ng-invalid.ng-touched{
+//     border: 1px solid red;
+//     box-shadow: 0 0 0 0.25rem rgb(255, 215, 215);
+// }
+// select.ng-invalid.ng-touched{
+//     border: 1px solid red;
+//     box-shadow: 0 0 0 0.01rem rgb(255, 215, 215);
+// }
 .formcontrol-style{
     color: rgb(247, 56, 56);
 }
 .example-container mat-form-field + mat-form-field {
   margin-left: 8px;
+  width: 200px;
 }
 
 .example-right-align {
@@ -51,4 +52,21 @@ input.example-right-align::-webkit-inner-spin-button {
 
 input.example-right-align {
   -moz-appearance: textfield;
+}
+.mat-mdc-text-field-wrapper{
+  padding-left: 200px !important;
+}
+.mat-label-style {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 17px;
+  font-family:  Vazirmatn;
+}
+.input-matinput-style {
+  display: unset;
+}
+.form-style{
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 20px;
 }
