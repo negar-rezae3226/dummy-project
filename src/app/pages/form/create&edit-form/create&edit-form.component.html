@@ -1,64 +1,165 @@
 <div class="card m-5">
   <div class="card-body p-5">
-    <p class="card-title pb-2 title-style">اطلاعات کاربر </p>
-    <hr>
-    <form action="" class="pt-3" [formGroup]="inputForm" (ngSubmit)="onSubmit()">
-
+    <p class="card-title pb-2 title-style">اطلاعات کاربر</p>
+    <hr />
+    <form
+      action=""
+      class="pt-3"
+      [formGroup]="inputForm"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="d-flex justify-content-between">
-
         <!-- <div class="form-group form-input-style">
           <label class="pb-2 label-style">نام:</label>
           <input type="text" class="form-control" formControlName="firstName">
           <span *ngIf="!inputForm.controls['firstName'].valid && inputForm.controls['firstName'].touched"
             class="formcontrol-style">*Enter Valid firstName</span>
         </div> -->
-        <app-input></app-input>
 
         <div class="form-group form-input-style">
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>نام</mat-label>
+              <input matInput />
+              <mat-hint></mat-hint>
+            </mat-form-field>
+          </p>
+        </div>
+        <div class="form-group form-input-style">
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>نام خانوادگی</mat-label>
+              <input matInput />
+              <mat-hint></mat-hint>
+            </mat-form-field>
+          </p>
+        </div>
+
+        <!-- <div class="form-group form-input-style">
           <label class="pb-2 label-style"> نام خانوادگی:</label>
-          <input type="text" class="form-control" formControlName="lastName">
-          <span *ngIf="!inputForm.controls['lastName'].valid && inputForm.controls['lastName'].touched"
-            class="formcontrol-style">*Enter Valid lastName</span>
-        </div>
-        
+          <input type="text" class="form-control" formControlName="lastName" />
+          <span
+            *ngIf="
+              !inputForm.controls['lastName'].valid &&
+              inputForm.controls['lastName'].touched
+            "
+            class="formcontrol-style"
+            >*Enter Valid lastName</span
+          >
+        </div> -->
       </div>
 
       <div class="d-flex justify-content-between mt-3">
         <div class="form-group form-input-style">
-          <label class="pb-2 label-style"> نام کاربری:</label>
-          <input type="text" class="form-control" formControlName="userName">
-          <span *ngIf="!inputForm.controls['userName'].valid && inputForm.controls['userName'].touched"
-            class="formcontrol-style">*Enter Valid username</span>
+          <!-- <label class="pb-2 label-style"> نام کاربری:</label>
+          <input type="text" class="form-control" formControlName="userName" />
+          <span
+            *ngIf="
+              !inputForm.controls['userName'].valid &&
+              inputForm.controls['userName'].touched
+            "
+            class="formcontrol-style"
+            >*Enter Valid username</span
+          > -->
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>نام کاربری </mat-label>
+              <input matInput />
+              <mat-hint></mat-hint>
+            </mat-form-field>
+          </p>
         </div>
         <div class="form-group form-input-style">
-          <label class="pb-2 label-style"> رمز عبور:</label>
-          <input type="text" class="form-control" formControlName="password">
-          <span *ngIf="!inputForm.controls['password'].valid && inputForm.controls['password'].touched"
-            class="formcontrol-style">*Enter Valid password</span>
+          <!-- <label class="pb-2 label-style"> رمز عبور:</label>
+          <input type="text" class="form-control" formControlName="password" />
+          <span
+            *ngIf="
+              !inputForm.controls['password'].valid &&
+              inputForm.controls['password'].touched
+            "
+            class="formcontrol-style"
+            >*Enter Valid password</span
+          > -->
+          <div class="example-container">
+            <mat-form-field appearance="fill">
+              <mat-label>رمز عبور</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" />
+              <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"> -->
+              <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+              <!-- </button> -->
+            </mat-form-field>
+          </div>
         </div>
       </div>
 
       <div class="d-flex justify-content-between mt-3">
         <div class="form-group form-input-style">
-          <label class="pb-2 label-style"> شماره تلفن:</label>
-          <input type="text" class="form-control" formControlName="phone">
-          <span *ngIf="!inputForm.controls['phone'].valid && inputForm.controls['phone'].touched"
-            class="formcontrol-style">*Enter Valid Phone Number</span>
+          <!-- <label class="pb-2 label-style"> شماره تلفن:</label>
+          <input type="text" class="form-control" formControlName="phone" />
+          <span
+            *ngIf="
+              !inputForm.controls['phone'].valid &&
+              inputForm.controls['phone'].touched
+            "
+            class="formcontrol-style"
+            >*Enter Valid Phone Number</span
+          > -->
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>شماره تلفن</mat-label>
+              <span matPrefix> &nbsp;+1</span>
+              <input type="tel" matInput />
+            </mat-form-field>
+          </form>
         </div>
         <div class="form-group form-input-style">
-          <label class="pb-2 label-style">ایمیل:</label>
-          <input type="text" class="form-control" formControlName="email">
-          <span *ngIf="!inputForm.controls['email'].valid && inputForm.controls['email'].touched"
-            class="formcontrol-style">*Enter Valid Email</span>
+          <!-- <label class="pb-2 label-style">ایمیل:</label>
+          <input type="text" class="form-control" formControlName="email" />
+          <span
+            *ngIf="
+              !inputForm.controls['email'].valid &&
+              inputForm.controls['email'].touched
+            "
+            class="formcontrol-style"
+            >*Enter Valid Email</span
+          > -->
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>ایمیل</mat-label>
+              <input
+                type="email"
+                matInput
+                [formControl]="emailFormControl"
+                placeholder="Ex. pat@example.com"
+              />
+              <mat-error
+                *ngIf="
+                  emailFormControl.hasError('email') &&
+                  !emailFormControl.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </form>
         </div>
       </div>
 
-      <div class="d-flex justify-content-between mt-3">
+      <!-- <div class="d-flex justify-content-between mt-3">
         <div class="form-group form-input-style">
           <label class="pb-2 label-style">سن:</label>
-          <input type="number" class="form-control" formControlName="age">
-          <span *ngIf="!inputForm.controls['age'].valid && inputForm.controls['age'].touched"
-            class="formcontrol-style">*Enter Valid age</span>
+          <input type="number" class="form-control" formControlName="age" />
+          <span
+            *ngIf="
+              !inputForm.controls['age'].valid &&
+              inputForm.controls['age'].touched
+            "
+            class="formcontrol-style"
+            >*Enter Valid age</span
+          >
         </div>
         <div class="form-group form-input-style">
           <label class="pb-2 label-style">جنسیت:</label>
@@ -67,20 +168,18 @@
             <option value="male">male</option>
             <option value="female">female</option>
           </select>
-          <span *ngIf="!inputForm.controls['gender'].valid && inputForm.controls['gender'].touched"
-            class="formcontrol-style">*please select your Gender</span>
-
-
+          <span
+            *ngIf="
+              !inputForm.controls['gender'].valid &&
+              inputForm.controls['gender'].touched
+            "
+            class="formcontrol-style"
+            >*please select your Gender</span
+          >
         </div>
-      </div>
-
-
-
+      </div> -->
 
       <button type="submit" class="btn button-style mt-4">ثبت</button>
     </form>
-
-
-
   </div>
 </div>
