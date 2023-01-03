@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.interface';
 import { UsersService } from 'src/app/services/users.service';
@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./create&edit-form.component.scss'],
 })
 export default class UserFormComponent implements OnInit {
+
   user: User = {
     lastName: '',
     firstName: '',
@@ -21,6 +22,7 @@ export default class UserFormComponent implements OnInit {
   };
 
   hide = true;
+  
   inputForm: FormGroup = new FormGroup('');
 
   constructor(private addUser: UsersService) {}
@@ -47,9 +49,15 @@ export default class UserFormComponent implements OnInit {
 
   onSubmit() {
     this.addUser.addNewUser(this.user);
+
   }
-  blurEvent(event: any) {
-    this.user.gender=event.target.value;
-  }
+
+	onSelected(value:string): void {
+		this.user.gender = value;
+	}
+
+
+
+
 }
 

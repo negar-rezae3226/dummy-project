@@ -58,3 +58,8 @@ $gray-color: #6c757d;
     height:26px;
     padding-left: 10px;
 }
+.header-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
