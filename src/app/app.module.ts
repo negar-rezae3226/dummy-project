@@ -27,6 +27,7 @@ import { DeleteDialogComponent} from './pages/delete-dialog/open-dialog.componen
 import { DialogComponent } from './pages/delete-dialog/dialog/dialog.component';
 import UserFormComponent from './pages/form/create&edit-form/create&edit-form.component';
 import { InputComponent } from './pages/input/input.component';
+import { SearchComponent } from './pages/search/search.component';
 
 
 
@@ -49,7 +50,8 @@ import { InputComponent } from './pages/input/input.component';
     UserFormComponent,
     DeleteDialogComponent,
     DialogComponent,
-    InputComponent
+    InputComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

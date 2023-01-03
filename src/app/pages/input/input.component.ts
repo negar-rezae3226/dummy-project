@@ -1,35 +1,38 @@
-import { Component, ElementRef, EventEmitter, InjectionToken, Input, Output, QueryList, ViewChildren } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-
-// enum InputType{
-//   text,
-//   email,
-//   number,
-//   password
-// }
-
-
-
 export class InputComponent {
 
 @Input() labelInput = '';
-@Input() inputType='text';
-@Input() inputFormControl = '';
+@Input() inputType:"text"|"number"|"password"|"email"="text";
+@Input() inputFormControl:any = '';
+
 
 
 @Output() inputValue = new EventEmitter<string>();;
  
-blurEvent(event: any){
+onInputValue(event: any){
 
   this.inputValue.emit(event.target.value);
   
 }
 
+// emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
+// getErrorMessage() {
+//   if (this.emailFormControl.hasError('required')) {
+//     return 'You must enter a value';
+//   }
+
+//   return this.emailFormControl.hasError('email') ? 'Not a valid email' : '';
+// }
+
 }
+
+
