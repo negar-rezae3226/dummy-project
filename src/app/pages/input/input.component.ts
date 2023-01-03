@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, InjectionToken, Input, Output, QueryList, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -8,20 +8,20 @@ import { ErrorStateMatcher } from '@angular/material/core';
   styleUrls: ['./input.component.scss']
 })
 
-enum InputType{
-  text,
-  email,
-  number,
-  password
-}
+// enum InputType{
+//   text,
+//   email,
+//   number,
+//   password
+// }
+
 
 
 export class InputComponent {
 
 @Input() labelInput = '';
-@Input() inputType:InputType;
+@Input() inputType='text';
 @Input() inputFormControl = '';
-
 
 
 @Output() inputValue = new EventEmitter<string>();;
