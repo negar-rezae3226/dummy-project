@@ -12,8 +12,11 @@ export class UsersTableComponent implements OnInit {
   usersList: User[] = [];
   deleteProduct: User[] = [];
   element: any;
+  searchUser: User[] = [];
+
 
   selectedId: number = 0;
+  selectedUser:any;
 
   constructor(private userService: UsersService, private router: Router, private route: ActivatedRoute) { }
 
@@ -26,7 +29,10 @@ export class UsersTableComponent implements OnInit {
         console.log(this.usersList);
       });
 
-    this.selectedId = this.route.snapshot.params['id'];
+    this.selectedId = +this.route.snapshot.params['id'];
+    this.selectedUser=this.usersList.find(user => user.id == this.selectedId);
+    console.log(this.selectedUser);
+    
   }
   onUserRedirect() {
     this.router.navigate(['users-management/create']);
@@ -36,5 +42,18 @@ export class UsersTableComponent implements OnInit {
 
     this.element = document.getElementById(user.id) as HTMLElement;
     this.element.parentElement.removeChild(this.element);
+  }
+
+  onSearchUser(e:string){
+
+    this.userService.searchUsers(e)
+    .then((res) => res.json())
+    .then((json) => {
+      this.usersList = json.users;
+      console.log(this.usersList);
+    });
+  }
+  trackByFunc(index:number , el:any){
+    return el.id;
   }
 }

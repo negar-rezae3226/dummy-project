@@ -11,6 +11,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
   exports:[
     MatAutocompleteModule,
@@ -35,7 +38,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   
   ],
   declarations: []
