@@ -22,10 +22,10 @@ const routes: Routes = [
                 path: 'edit/:id',
                 component: UserEditComponent,
             },
-            {
-                path: 'detail/:id',
-                component: UserDetailComponent,
-            },
+            // {
+            //     path: 'detail/:id',
+            //     component: UserDetailComponent,
+            // },
             {
                 path: 'posts/:id',
                 component: UserPostsComponent,
@@ -33,7 +33,7 @@ const routes: Routes = [
         ]
     },
     {path: 'users-management/create', component: UserCreateComponent},
-
+    {path: 'detail/:id', component: UserDetailComponent},
     { path: 'products-management', component: ProductsManagementComponent },
     { path: 'login', component:LoginComponent },
     { path: 'dashboard', component:DashboardComponent },

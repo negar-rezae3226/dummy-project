@@ -42,5 +42,9 @@ export class UsersService {
       .then(console.log);
   }
 
+  searchUsers(inputValue:any)  {
+    return fetch(`https://dummyjson.com/users/search?q=${inputValue}`);
+  }
+
 
 }
