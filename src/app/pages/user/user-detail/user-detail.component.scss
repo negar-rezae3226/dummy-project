@@ -1,0 +1,17 @@
+.user-detail-style{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+.title-details{
+    font-size:18px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+.details-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:30px  80px 0px 100px;
+}
