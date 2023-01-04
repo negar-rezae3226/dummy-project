@@ -22,18 +22,18 @@ export class UsersService {
     })
   }
 
-  addNewUser(user:User) {
-    return fetch(this.apiUrl+'users/add', {
+  addNewUser(user: User) {
+    return fetch(this.apiUrl + 'users/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        
+
         firstName: user.firstName,
         lastName: user.lastName,
-        username:user.username,
-        phone:user.phone,
-        password:user.password,
-        email:user.email,
+        username: user.username,
+        phone: user.phone,
+        password: user.password,
+        email: user.email,
         gender: user.gender,
         /* other user data */
       })
@@ -42,8 +42,27 @@ export class UsersService {
       .then(console.log);
   }
 
-  searchUsers(inputValue:any)  {
-    return fetch(`https://dummyjson.com/users/search?q=${inputValue}`);
+  searchUsers(inputValue: any) {
+    return fetch(this.apiUrl + `users/search?q=${inputValue}`);
+  }
+
+  editUser(userId: string, user: User) {
+    fetch(this.apiUrl + `users/${userId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        phone: user.phone,
+        password: user.password,
+        email: user.email,
+        gender: user.gender,
+      })
+    })
+      .then(res => res.json())
+      .then(console.log);
   }
 
 

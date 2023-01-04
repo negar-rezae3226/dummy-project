@@ -6,6 +6,7 @@ export interface User{
     firstName:string;
     password:string;
     username:string;
-    id:number
+    id:number;
+    configPassword?:string
 }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users-management',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class UsersManagementComponent {
 
+  selectedId?: number;
+
+  constructor(private route:ActivatedRoute) { }
+
+  ngOnInit(): void {
+
+
+  }
 }

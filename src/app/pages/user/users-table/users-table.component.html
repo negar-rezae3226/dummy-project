@@ -35,10 +35,10 @@
                             <td>{{user.email}}</td>
                             <td>
                                 <button mat-button class="mdi mdi-account-edit edit" matTooltip="ویرایش"
-                                    matTooltipClass="example-tooltip-uppercase" routerLinkActive="active" routerLink=""></button>
+                                    matTooltipClass="example-tooltip-uppercase"  routerLink="/users-management/edit/{{user.id}}"></button>
                                 <app-delete-dialog (newItemEvent)="OnDeleteUser(user)"></app-delete-dialog>
                                 <button mat-button class="mdi mdi-account-details details" matTooltip="جزئیات کاربر"
-                                matTooltipClass="example-tooltip-uppercase" routerLinkActive="active" (click)="onUserRedirect()" [id]="user.id"></button>
+                                matTooltipClass="example-tooltip-uppercase" routerLinkActive="active-link" routerLink="/users-management/detail/{{user.id}}"  [id]="user.id"></button>
                             </td>
                         </tr>
                     </tbody>
