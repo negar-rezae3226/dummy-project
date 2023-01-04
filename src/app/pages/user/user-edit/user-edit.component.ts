@@ -32,10 +32,11 @@ export class UserEditComponent {
         console.log(this.usersList);
 
       });
+      
     setTimeout(() => {
       this.selectUser = this.usersList.find(user => user.id === this.userId)
       console.log(this.selectUser);
-    }, 3000);
+    }, 5000);
 
 
   }

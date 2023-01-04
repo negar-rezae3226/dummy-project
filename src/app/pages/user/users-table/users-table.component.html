@@ -1,58 +1,95 @@
 <div class="card mb-3 card-users-style">
-    <div class="card-header card-header-style">
-        <p>کاربران</p>
-        <app-search (searchInput)="onSearchUser($event)"></app-search>
-        <button type="button" class="btn create-user-button d-flex" (click)="onUserRedirect()">
-            <i class="mdi mdi-plus-thick icon-style"></i>
-            <p>جدید</p>
-        </button>
+  <div class="card-header card-header-style">
+    <p>کاربران</p>
+    <app-search (searchInput)="onSearchUser($event)"></app-search>
+    <button
+      type="button"
+      class="btn create-user-button d-flex"
+      (click)="onUserRedirect()"
+    >
+      <i class="mdi mdi-plus-thick icon-style"></i>
+      <p>جدید</p>
+    </button>
+  </div>
+  <div class="card-body table-body">
+    <div class="card-text">
+      <div class="table-responsive t users-table-style" id="#table-scroll">
+        <table class="table users-table-style">
+          <thead
+            class="thead-color"
+            *ngIf="usersList?.length !== 0; else elseCond"
+          >
+            <tr>
+              <th scope="col">نام</th>
+              <th scope="col">نام خانوادگی</th>
+              <th scope="col">نام کاربری</th>
+              <th scope="col">رمز عبور</th>
+              <th scope="col">جنسیت</th>
+              <th scope="col">شماره تلفن</th>
+              <th scope="col">ایمیل</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="tbody-color">
+            <tr
+              *ngFor="
+                let user of usersList;
+                let i = index;
+                trackBy: trackByFunc
+              "
+              [attr.id]="user.id"
+            >
+              <td>{{ user.firstName }}</td>
+              <td>{{ user.lastName }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.password }}</td>
+              <td>{{ user.gender }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <button
+                  mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu"
+                >
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <app-delete-dialog
+                    (newItemEvent)="OnDeleteUser(user)"
+                  ></app-delete-dialog>
+                  <button
+                    mat-button
+                    class="mdi mdi-account-edit edit"
+                    matTooltip="ویرایش"
+                    matTooltipClass="example-tooltip-uppercase"
+                    routerLink="/users-management/edit/{{ user.id }}"
+                  ></button>
+                  <button
+                    mat-button
+                    class="mdi mdi-account-details details"
+                    matTooltip="جزئیات کاربر"
+                    matTooltipClass="example-tooltip-uppercase"
+                    routerLinkActive="active-link"
+                    routerLink="/users-management/detail/{{ user.id }}"
+                    [id]="user.id"
+                  ></button>
+                </mat-menu>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="card-body table-body">
-        <div class="card-text">
-            <div class="table-responsive t users-table-style" id="#table-scroll">
-                <table class="table  users-table-style">
-                    <thead class="thead-color" *ngIf="usersList?.length !== 0 ; else elseCond">
-                        <tr>
-                            <th scope="col">نام</th>
-                            <th scope="col">نام خانوادگی</th>
-                            <th scope="col">نام کاربری</th>
-                            <th scope="col">رمز عبور</th>
-                            <th scope="col">جنسیت</th>
-                            <th scope="col">شماره تلفن</th>
-                            <th scope="col">ایمیل</th>
-                            <th scope="col"></th>
-
-                        </tr>
-                    </thead>
-                    <tbody class="tbody-color">
-                        <tr *ngFor="let user of usersList ; let i=index ; trackBy : trackByFunc" [attr.id]="user.id">
-                            <td>{{user.firstName}}</td>
-                            <td>{{user.lastName}}</td>
-                            <td>{{user.username}}</td>
-                            <td>{{user.password}}</td>
-                            <td>{{user.gender}}</td>
-                            <td>{{user.phone}}</td>
-                            <td>{{user.email}}</td>
-                            <td>
-                                <button mat-button class="mdi mdi-account-edit edit" matTooltip="ویرایش"
-                                    matTooltipClass="example-tooltip-uppercase"  routerLink="/users-management/edit/{{user.id}}"></button>
-                                <app-delete-dialog (newItemEvent)="OnDeleteUser(user)"></app-delete-dialog>
-                                <button mat-button class="mdi mdi-account-details details" matTooltip="جزئیات کاربر"
-                                matTooltipClass="example-tooltip-uppercase" routerLinkActive="active-link" routerLink="/users-management/detail/{{user.id}}"  [id]="user.id"></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
 <ng-template #elseCond>
-    <div class="not-found">
-        <img src="../../../../assets/images/table-notfound.jpg" class="table-notfound">
-        <p class="pt-4">
-        کاربری یافت نشد
-        </p>
-    </div>
+  <div class="not-found">
+    <img
+      src="../../../../assets/images/table-notfound.jpg"
+      class="table-notfound"
+    />
+    <p class="pt-4">کاربری یافت نشد</p>
+  </div>
 </ng-template>
