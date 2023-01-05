@@ -10,24 +10,23 @@ import { User } from 'src/app/models/user.interface';
 })
 export class InputComponent {
 
+
   @Input() labelInput = '';
   @Input() formControlInput = '';
   @Input() inputType: "text" | "number" | "password" | "email" = "text";
   @Input() inputFormControl: FormControl | any;
   @Input() form: FormGroup | any;
+  @Input() value:any="";
 
-
-  @Output() inputValue = new EventEmitter<string>();
+  @Output() inputValue = new EventEmitter<any>();
 
   ngOnInit(): void {
-
+    this.onEmitValue();
   }
 
 
-  onInputValue(event: any) {
-
-    this.inputValue.emit(event.target.value);
-
+  onEmitValue() {
+    this.inputValue.emit(this.value);
   }
 
 

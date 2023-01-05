@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { FormValidationErrorsComponent } from './form-validation-errors/form-validation-errors.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -43,7 +44,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     MatMenuModule,
   ],
-  declarations: [],
+  declarations: [
+    FormValidationErrorsComponent
+  ],
 })
 export class SharedModule {}
 
