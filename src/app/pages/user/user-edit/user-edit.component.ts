@@ -10,33 +10,28 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./user-Edit.component.scss']
 })
 export class UserEditComponent {
-  users: User[] = [];
-  usersList: User[] = [];
-  userId: any = {};
-  selectUser: any = {};
+  users: User={};
+  selectedUser: User={};
+  userId: number = 0;
+  selectUser: User = {};
+
+  
 
 
   constructor(private active: ActivatedRoute, private UsersService: UsersService) { }
 
   ngOnInit(): void {
 
-    // this.userId = this.active.params.subscribe(param => console.log(param))
+
     this.userId = +this.active.snapshot.params['id'];
     console.log(this.userId);
 
-
-    this.UsersService.getAllUsers()
+    this.UsersService.getSingleUser(this.userId)
       .then((res) => res.json())
       .then((json) => {
-        this.usersList = json.users;
-        console.log(this.usersList);
-
+        this.selectedUser = json;
+        console.log(this.selectedUser);
       });
-      
-    setTimeout(() => {
-      this.selectUser = this.usersList.find(user => user.id === this.userId)
-      console.log(this.selectUser);
-    }, 5000);
 
 
   }

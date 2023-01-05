@@ -34,8 +34,8 @@ export class UsersService {
         phone: user.phone,
         password: user.password,
         email: user.email,
-        gender: user.gender,
-        /* other user data */
+        age: user.age,
+
       })
     })
       .then(res => res.json())
@@ -46,8 +46,14 @@ export class UsersService {
     return fetch(this.apiUrl + `users/search?q=${inputValue}`);
   }
 
-  editUser(userId: string, user: User) {
-    fetch(this.apiUrl + `users/${userId}`, {
+  getSingleUser(userId:number){
+    
+   return fetch(this.apiUrl + `users/${userId}`)
+
+  }
+
+  editUser(userId: number, user: User) {
+   return fetch(this.apiUrl + `users/${userId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -6,14 +6,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex">
             <ul class="navbar-nav">
-                <!-- <li class="nav-item active">
-                <div>
-                    <input type="search" placeholder="جستجو" class="input-search-style">
-                    <i class="mdi mdi-magnify search-icone-style"></i>
-                </div>
-            </li> -->
                 <li class="nav-item header-style">
                     <div class="d-flex ">
                         <div class="bell-style">
@@ -38,6 +32,7 @@
                     <div class="header-login-style" routerLinkActive="active-link" routerLink="login"> ورود</div>
                 </div>
             </ul>
+            <button type="button" class="btn btn-secondary back-button" (click)="onClickBack()">بازگشت</button>
         </div>
     </div>
 </nav>

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.interface';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -11,22 +11,14 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export default class UserFormComponent implements OnInit {
 
-@Input() user: User = {
-    lastName: '',
-    firstName: '',
-    phone: '',
-    email: '',
-    gender: '',
-    password: '',
-    configPassword: '',
-    username: '',
-    id: 0,
-  };
+  @Input() user: User = {};
+  userId: number = 0;
+
 
   hide = true;
   form!: FormGroup;
 
-  constructor(private addUser: UsersService, private FormBuilder: FormBuilder , private router:Router) { }
+  constructor(private active: ActivatedRoute,private userService: UsersService, private FormBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -37,36 +29,38 @@ export default class UserFormComponent implements OnInit {
       passwordFormControl: [null, [Validators.required, Validators.maxLength(10)]],
       emailFormControl: [null, [Validators.required, Validators.email]],
       confirmPassword: [null, [Validators.required, Validators.maxLength(10)]],
-
+      ageFormControl: [null],
+      telephoneFormControl: [null]
     })
   }
 
   onSubmit() {
-    console.log();
+
+    this.userId = +this.active.snapshot.params['id'];
+
+    console.log("form", this.form);
+
+    let routerLink = this.router.url;
 
     if (this.form.valid) {
 
-      if (this.user.configPassword == this.user.password) {
-        this.addUser.addNewUser(this.user);
-        console.log(this.user);
+      if (routerLink == '/users-management/edit/' + this.userId) {
+        this.userService.editUser(this.userId, this.user);
       }
-      else{
-        alert("رمز عبور ها تطابق ندارند")
+      else {
+          this.userService.addNewUser(this.user);
+          console.log(this.user);
       }
     }
-  }
 
-  onSelected(value: string): void {
-    this.user.gender = value;
-  }
 
-  redirect(){
+  }
+  redirect() {
     // if (this.form.valid) {
     // this.router.navigate(['/users-management'])
     // }
+
   }
-
-
 }
 
 

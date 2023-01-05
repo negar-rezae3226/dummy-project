@@ -23,8 +23,8 @@ import { UsersTableComponent } from './pages/user/users-table/users-table.compon
 import { UserModule } from './pages/user/user.module';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { SearchComponent } from './components/shared/search/search.component';
+import UserFormComponent from './pages/user/create&edit-form/create&edit-form.component';
 import { InputComponent } from './components/shared/input/input.component';
-import UserFormComponent from './components/shared/create&edit-form/create&edit-form.component';
 import { DeleteDialogComponent } from './components/shared/delete-dialog/open-dialog.component';
 import { DialogComponent } from './components/shared/delete-dialog/dialog/dialog.component';
 
