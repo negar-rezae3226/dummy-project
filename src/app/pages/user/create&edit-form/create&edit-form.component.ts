@@ -18,24 +18,25 @@ export default class UserFormComponent implements OnInit {
   hide = true;
   form!: FormGroup;
 
-  constructor(private active: ActivatedRoute,private userService: UsersService, private FormBuilder: FormBuilder, private router: Router) { }
+  constructor(private active: ActivatedRoute, private userService: UsersService, private FormBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.form = this.FormBuilder.group({
-      nameFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
-      familyFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
-      usernameFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
-      passwordFormControl: [null, [Validators.required, Validators.maxLength(10)]],
-      emailFormControl:[null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      confirmPassword: [null, [Validators.required, Validators.maxLength(10)]],
+    this.form = this.FormBuilder.group(
+      {
+      nameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+      familyFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+      usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+      passwordFormControl: [null, [Validators.required]],
+      emailFormControl: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      confirmPassword: [null, [Validators.required]],
       ageFormControl: [null],
       telephoneFormControl: [null]
-    })
+    }
+    )
   }
 
   onSubmit() {
-
 
 
     this.userId = +this.active.snapshot.params['id'];
@@ -51,9 +52,13 @@ export default class UserFormComponent implements OnInit {
         this.userService.editUser(this.userId, this.user);
       }
       else {
-          this.userService.addNewUser(this.user);
-          console.log(this.user);
+        this.userService.addNewUser(this.user);
+        console.log(this.user);
       }
+    }
+    else{
+      this.form.markAllAsTouched();
+      return;
     }
 
 
