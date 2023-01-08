@@ -23,11 +23,11 @@ export default class UserFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.FormBuilder.group({
-      nameFormControl: [null, [Validators.required, Validators.maxLength(10)]],
-      familyFormControl: [null, [Validators.required, Validators.maxLength(10)]],
-      usernameFormControl: [null, [Validators.required, Validators.maxLength(10)]],
+      nameFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
+      familyFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
+      usernameFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
       passwordFormControl: [null, [Validators.required, Validators.maxLength(10)]],
-      emailFormControl: [null, [Validators.required, Validators.email]],
+      emailFormControl:[null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       confirmPassword: [null, [Validators.required, Validators.maxLength(10)]],
       ageFormControl: [null],
       telephoneFormControl: [null]
@@ -36,9 +36,12 @@ export default class UserFormComponent implements OnInit {
 
   onSubmit() {
 
+
+
     this.userId = +this.active.snapshot.params['id'];
 
     console.log("form", this.form);
+
 
     let routerLink = this.router.url;
 
