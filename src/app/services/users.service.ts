@@ -22,20 +22,49 @@ export class UsersService {
     })
   }
 
-  addNewUser(user:User) {
-    return fetch(this.apiUrl+'users/add', {
+  addNewUser(user: User) {
+    return fetch(this.apiUrl + 'users/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        
+
         firstName: user.firstName,
         lastName: user.lastName,
-        username:user.username,
-        phone:user.phone,
-        password:user.password,
-        email:user.email,
+        username: user.username,
+        phone: user.phone,
+        password: user.password,
+        email: user.email,
+        age: user.age,
+
+      })
+    })
+      .then(res => res.json())
+      .then(console.log);
+  }
+
+  searchUsers(inputValue: any) {
+    return fetch(this.apiUrl + `users/search?q=${inputValue}`);
+  }
+
+  getSingleUser(userId:number){
+    
+   return fetch(this.apiUrl + `users/${userId}`)
+
+  }
+
+  editUser(userId: number, user: User) {
+   return fetch(this.apiUrl + `users/${userId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        phone: user.phone,
+        password: user.password,
+        email: user.email,
         gender: user.gender,
-        /* other user data */
       })
     })
       .then(res => res.json())

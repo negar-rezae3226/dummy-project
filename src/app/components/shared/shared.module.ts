@@ -11,6 +11,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { FormValidationErrorsComponent } from './form-validation-errors/form-validation-errors.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,11 +26,13 @@ import {MatSelectModule} from '@angular/material/select';
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule,
+    MatMenuModule,
   ],
-  exports:[
+  exports: [
     MatAutocompleteModule,
-    MatButtonModule ,
+    MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
     MatButtonToggleModule,
@@ -35,10 +40,13 @@ import {MatSelectModule} from '@angular/material/select';
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
-  
+    MatSelectModule,
+    MatSnackBarModule,
+    MatMenuModule,
   ],
-  declarations: []
+  declarations: [
+    FormValidationErrorsComponent
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
 

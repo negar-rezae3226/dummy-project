@@ -6,38 +6,38 @@
     </a>
     <br>
     <ul class="nav nav-pills flex-column mb-auto sidebar-text-style">
-        <li class="mb-1">
-            <a   class="nav-link active" aria-current="page" [routerLinkActive]="'active'" [routerLink]="'dashboard'">
+        <li class="mb-1" routerLinkActive="active" >
+            <a   class="nav-link active" aria-current="page" [routerLink]="'dashboard'">
                 <i class="mdi mdi-monitor-dashboard"></i>
                 داشبورد
             </a>
         </li>
-        <li class="mb-1">
-            <a  routerLinkActive="active" routerLink="users-management" class="nav-link text-white">
+        <li class="mb-1"  [routerLinkActive]="'active'">
+            <a    class="nav-link text-white" [routerLink]="'users-management'">
                 <i class="mdi mdi-account"></i>
                 مدیریت کاربران 
             </a>
         </li>
         <li class="mb-1">
-            <a  routerLinkActive="active" routerLink="products-management" class="nav-link text-white">
+            <a  routerLink="products-management" routerLinkActive="active" class="nav-link text-white">
                 <i class="mdi mdi-file-document-edit"></i>
                 مدیریت محصولات
             </a>
         </li>
         <li class="mb-1">
-            <a  routerLinkActive="active" routerLink="create" class="nav-link text-white">
+            <a  routerLink="create" routerLinkActive="active-link" class="nav-link text-white">
                 <i class="mdi mdi-credit-card-outline"></i>
                 مالی
             </a>
         </li>
         <li class="mb-1">
-            <a  routerLinkActive="active" routerLink="" class="nav-link text-white">
+            <a   routerLink="" routerLinkActive="active-link" class="nav-link text-white">
                 <i class="mdi mdi-face-agent"></i>
                 پشتیبانی
             </a>
         </li>
         <li class="mb-1">
-            <a  routerLinkActive="active" routerLink="" class="nav-link text-white">
+            <a   routerLink="" routerLinkActive="active-link" class="nav-link text-white">
                 <i class="mdi mdi-logout-variant"></i>
                 خروج
             </a>

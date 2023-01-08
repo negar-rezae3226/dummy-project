@@ -1,0 +1,59 @@
+<div class="example-container" [formGroup]="form">
+    <mat-form-field appearance="outline" dir="rtl" class="input-matinput-style">
+        <mat-label class="mat-label-style">{{labelInput}}</mat-label>
+        <input matInput [type]="inputType" class="input-matinput-style" (input)="onEmitValue()"
+            [formControlName]="formControlInput" [(ngModel)]="value">
+        <mat-error *ngIf="form.get(formControlInput).hasError('required')" class="error-input">این فیلد اجباری است
+        </mat-error>
+
+        <mat-error *ngIf="form.get(formControlInput).hasError('maxlength')" class="error-input">
+            حداکثر تعداد کاراکتر {{labelInput}} 10 است
+        </mat-error>
+
+        <mat-error *ngIf="form.get(formControlInput).hasError('minlength')" class="error-input">
+            حداقل تعداد کاراکتر {{labelInput}} 3 است
+        </mat-error>
+
+        <mat-error *ngIf="form.get(formControlInput).hasError('pattern')" class="error-input">
+            {{labelInput}} وارد شده معتبر نمی باشد
+        </mat-error>
+        <mat-error >
+
+        </mat-error>
+    </mat-form-field>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="example-container">
+    <mat-form-field appearance="outline" dir="rtl" class="input-matinput-style">
+        <mat-label class="mat-label-style">{{labelInput}}</mat-label>
+        <input matInput [type]="inputType" class="input-matinput-style" [formControl]="inputFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('email') &&!emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+    </mat-form-field>
+</div> -->

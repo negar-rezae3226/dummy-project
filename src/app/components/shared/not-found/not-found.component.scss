@@ -1,0 +1,20 @@
+.notfound-style {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  width: 30%;
+  height: 30%;
+}
+
+.error-style {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 130px;
+  background-color: #ffffff !important;
+}
+.text-error {
+  font-size: 30px;
+  font-weight: 70px;
+  color: #342c5f;
+}

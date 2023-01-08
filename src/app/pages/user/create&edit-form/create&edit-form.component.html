@@ -1,0 +1,67 @@
+<div class="card m-5">
+  <div class="card-body p-4">
+    <p class="card-title pb-2 title-style">اطلاعات کاربر</p>
+    <hr />
+    <form class="form-style" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="d-flex justify-content-between">
+        <div class="form-group form-input-style">
+          <app-input [value]="user.firstName" [labelInput]="'نام'" [form]="form"
+            (inputValue)="this.user.firstName=$event" formControlInput="nameFormControl"></app-input>
+        </div>
+
+        <div class="form-group form-input-style">
+          <app-input [value]="user.lastName" [labelInput]="'نام خانوادگی'" [form]="form"
+            formControlInput="familyFormControl" (inputValue)=" this.user.lastName = $event"></app-input>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-1">
+
+        <div class="form-group form-input-style">
+          <app-input [value]="user.age" [labelInput]="'سن'" [inputType]="'number'" [form]="form"
+            formControlInput='ageFormControl' (inputValue)="this.user.age = $event"></app-input>
+        </div>
+
+        <div class="form-group form-input-style">
+          <app-input [value]="user.username" [labelInput]="'نام کاربری'" [form]="form"
+            formControlInput='usernameFormControl' (inputValue)="this.user.username = $event"></app-input>
+        </div>
+
+      </div>
+
+      <div class="d-flex justify-content-between mt-1">
+        <div class="form-group form-input-style">
+          <app-input [value]="user.password" [labelInput]="'رمز عبور'" [form]="form"
+            [inputType]="hide ? 'password' : 'password'" formControlInput='passwordFormControl'
+            (inputValue)="this.user.password = $event">
+          </app-input>
+        </div>
+
+        <div class="form-group form-input-style">
+          <app-input [value]="user.password" [labelInput]="'تکرار رمز عبور '" [form]="form"
+            [inputType]="hide ? 'password' : 'password'" formControlInput='confirmPassword'
+            (inputValue)="this.user.configPassword = $event"></app-input>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-1">
+        <div class="form-group form-input-style">
+          <app-input [value]="user.email" [labelInput]="' ایمیل'" [form]="form" formControlInput='emailFormControl'
+            (inputValue)="this.user.email = $event"></app-input>
+        </div>
+
+
+        <div class="form-group form-input-style">
+          <app-input [value]="user.phone" [labelInput]="'شماره تلفن'" [form]="form"
+            formControlInput='telephoneFormControl' (inputValue)="this.user.phone = $event"></app-input>
+        </div>
+      </div>
+
+      <button class="button-64 pt-3 pb-3" role="button" type="submit" (click)="redirect()">
+        ثبت
+        <!-- <div class="spinner-border spinner-border-sm" role="status">
+        </div> -->
+      </button>
+    </form>
+  </div>
+</div>
