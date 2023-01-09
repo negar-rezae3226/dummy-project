@@ -16,12 +16,14 @@ export class InputComponent {
   @Input() inputType: "text" | "number" | "password" | "email" = "text";
   @Input() inputFormControl: FormControl | any;
   @Input() form: FormGroup | any;
-  @Input() value:any="";
+  @Input() value: any = "";
+
 
   @Output() inputValue = new EventEmitter<any>();
 
   ngOnInit(): void {
     this.onEmitValue();
+
   }
 
 
