@@ -17,42 +17,9 @@
         <mat-error *ngIf="form.get(formControlInput).hasError('pattern')" class="error-input"> 
             رمز عبور شامل حروف بزرگ و کوچک،عدد و علاِئم می باشد!
         </mat-error>
+        
         <mat-error *ngIf="form.get(formControlInput).hasError('matching')" class="error-input">تکرار رمز عبور با رمز عبور تطابق ندارد !</mat-error>
 
     </mat-form-field>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="example-container">
-    <mat-form-field appearance="outline" dir="rtl" class="input-matinput-style">
-        <mat-label class="mat-label-style">{{labelInput}}</mat-label>
-        <input matInput [type]="inputType" class="input-matinput-style" [formControl]="inputFormControl">
-        <mat-error *ngIf="emailFormControl.hasError('email') &&!emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-    </mat-form-field>
-</div> -->

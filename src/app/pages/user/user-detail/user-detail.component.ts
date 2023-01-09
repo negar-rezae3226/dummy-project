@@ -19,14 +19,14 @@ export class UserDetailComponent {
   ngOnInit(): void {
     // this.userId = this.active.params.subscribe(param => console.log(param))
     this.userId = +this.active.snapshot.params['id'];
-    console.log(this.userId);
+    // console.log(this.userId);
 
-    this.UsersService.getAllUsers()
-      .then((res) => res.json())
-      .then((json) => {
-        this.usersList = json.users;
-        console.log(this.usersList);
-      });
+    this.UsersService.getAllUsers().subscribe
+      // .then((res) => res.json())
+      // .then((json) => {
+      //   this.usersList = json.users;
+      //   console.log(this.usersList);
+      // });
     setTimeout(() => {
       this.selectUser = this.usersList.find((user) => user.id === this.userId);
       console.log(this.selectUser);

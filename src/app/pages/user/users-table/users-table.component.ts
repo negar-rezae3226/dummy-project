@@ -13,6 +13,7 @@ export class UsersTableComponent implements OnInit {
   deleteProduct: User[] = [];
   element: any;
   searchUser: User[] = [];
+  // usersList:any='';
 
   constructor(private userService: UsersService, private router: Router, private route: ActivatedRoute) { }
 
@@ -20,13 +21,9 @@ export class UsersTableComponent implements OnInit {
 
 
 
-    this.userService.getAllUsers()
-      .then((res) => res.json())
-      .then((json) => {
-        this.usersList = json.users;
-        console.log(this.usersList);
-      });
-
+    this.userService.getAllUsers().subscribe(
+      (response: User[]) => { this.usersList = response }
+    )
 
   }
   onUserRedirect() {
@@ -41,12 +38,9 @@ export class UsersTableComponent implements OnInit {
 
   onSearchUser(e: string) {
 
-    this.userService.searchUsers(e)
-      .then((res) => res.json())
-      .then((json) => {
-        this.usersList = json.users;
-        console.log(this.usersList);
-      });
+    this.userService.searchUsers(e).subscribe(
+      (response: User[]) => { this.usersList = response }
+    )
   }
   trackByFunc(index: number, el: any) {
     return el.id;

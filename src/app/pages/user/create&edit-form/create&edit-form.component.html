@@ -43,25 +43,29 @@
 
       <div class="d-flex justify-content-between mt-1">
         <div class="form-group form-input-style">
-          <app-input  [labelInput]="'رمز عبور'" [form]="form"
-            [inputType]="hide ? 'password' : 'password'" formControlInput='passwordFormControl'
-            (inputValue)="this.user.password = $event">
+          <app-input [labelInput]="'رمز عبور'" [form]="form" [inputType]="hide ? 'password' : 'password'"
+            formControlInput='passwordFormControl' (inputValue)="this.user.password = $event">
           </app-input>
         </div>
 
         <div class="form-group form-input-style">
-          <app-input [labelInput]="'تکرار رمز عبور '" [form]="form"
-            [inputType]="hide ? 'password' : 'password'" formControlInput='confirmPassword'
-            (inputValue)="this.user.configPassword = $event"></app-input>
+          <app-input [labelInput]="'تکرار رمز عبور '" [form]="form" [inputType]="hide ? 'password' : 'password'"
+            formControlInput='confirmPassword' (inputValue)="this.user.configPassword = $event"></app-input>
         </div>
       </div>
 
 
 
       <button class="button-64 pt-3 pb-3" role="button" type="submit" (click)="redirect()">
-        ثبت
-        <!-- <div class="spinner-border spinner-border-sm" role="status">
-        </div> -->
+        <div *ngIf="buttonSubmit ; else elseCond">
+          ثبت
+        </div>
+        <ng-template #elseCond class="pt-5 pb-5">
+          <div>
+            <div class="spinner-border spinner-border-sm " role="status">
+            </div>
+          </div>
+        </ng-template>
       </button>
     </form>
   </div>
