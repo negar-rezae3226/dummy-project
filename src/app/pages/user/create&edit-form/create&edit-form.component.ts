@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.interface';
 import { UsersService } from 'src/app/services/users.service';
-
+import { ValidationComponent } from '../../validation/validation.component';
 @Component({
   selector: 'create-edit-form',
   templateUrl: './create&edit-form.component.html',
@@ -13,6 +13,7 @@ export default class UserFormComponent implements OnInit {
 
   @Input() user: User = {};
   userId: number = 0;
+  matchPassword: boolean = true;
 
 
   hide = true;
@@ -24,15 +25,18 @@ export default class UserFormComponent implements OnInit {
 
     this.form = this.FormBuilder.group(
       {
-      nameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
-      familyFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
-      usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
-      passwordFormControl: [null, [Validators.required]],
-      emailFormControl: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      confirmPassword: [null, [Validators.required]],
-      ageFormControl: [null],
-      telephoneFormControl: [null]
-    }
+        nameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+        familyFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+        usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+        passwordFormControl: [null, [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}') ]  ],
+        emailFormControl: [null, [Validators.required, Validators.email]],
+        confirmPassword: [null, [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+        ageFormControl: [null],
+        telephoneFormControl: [null]
+      },
+      {
+        validators: [ValidationComponent.match('passwordFormControl', 'confirmPassword')]
+      }
     )
   }
 
@@ -56,12 +60,10 @@ export default class UserFormComponent implements OnInit {
         console.log(this.user);
       }
     }
-    else{
+    else {
       this.form.markAllAsTouched();
       return;
     }
-
-
   }
   redirect() {
     // if (this.form.valid) {
@@ -69,6 +71,8 @@ export default class UserFormComponent implements OnInit {
     // }
 
   }
+
+
 }
 
 

@@ -43,14 +43,14 @@
 
       <div class="d-flex justify-content-between mt-1">
         <div class="form-group form-input-style">
-          <app-input [value]="user.password" [labelInput]="'رمز عبور'" [form]="form"
+          <app-input  [labelInput]="'رمز عبور'" [form]="form"
             [inputType]="hide ? 'password' : 'password'" formControlInput='passwordFormControl'
             (inputValue)="this.user.password = $event">
           </app-input>
         </div>
 
         <div class="form-group form-input-style">
-          <app-input [value]="user.password" [labelInput]="'تکرار رمز عبور '" [form]="form"
+          <app-input [labelInput]="'تکرار رمز عبور '" [form]="form"
             [inputType]="hide ? 'password' : 'password'" formControlInput='confirmPassword'
             (inputValue)="this.user.configPassword = $event"></app-input>
         </div>
