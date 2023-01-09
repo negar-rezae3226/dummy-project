@@ -10,7 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./user-Edit.component.scss']
 })
 export class UserEditComponent {
-  users: User={};
+  users: User[]=[];
   selectedUser: User={};
   userId: number = 0;
   selectUser: User = {};

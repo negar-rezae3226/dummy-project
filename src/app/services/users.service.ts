@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.interface';
+import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  // readonly apiUrl: string = "https://dummyjson.com/auth/";
+
+
   readonly apiUrl: string = "https://dummyjson.com/";
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAllUsers() {
-    return fetch(this.apiUrl + 'users');
+
+    return this.http.get<any>(this.apiUrl + 'users').pipe(
+      map(items=>items.users )
+    );
   }
 
   deleteUser(userId: string) {
@@ -43,17 +49,24 @@ export class UsersService {
   }
 
   searchUsers(inputValue: any) {
-    return fetch(this.apiUrl + `users/search?q=${inputValue}`);
+
+    return this.http.get<any>(this.apiUrl + `users/search?q=${inputValue}`).pipe(
+      map(items=>items.users )
+    );
+
   }
 
-  getSingleUser(userId:number){
-    
-   return fetch(this.apiUrl + `users/${userId}`)
+  getSingleUser(userId: number) {
+
+    return fetch(this.apiUrl + `users/${userId}`)
+    // return this.http.get<any>(this.apiUrl + `users/${userId}`).pipe(
+    //   map(items=>items.users )
+    // );
 
   }
 
   editUser(userId: number, user: User) {
-   return fetch(this.apiUrl + `users/${userId}`, {
+    return fetch(this.apiUrl + `users/${userId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

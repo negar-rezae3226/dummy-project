@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.interface';
 import { UsersService } from 'src/app/services/users.service';
@@ -13,7 +13,7 @@ export default class UserFormComponent implements OnInit {
 
   @Input() user: User = {};
   userId: number = 0;
-  matchPassword: boolean = true;
+  buttonSubmit: boolean = true;
 
 
   hide = true;
@@ -28,9 +28,9 @@ export default class UserFormComponent implements OnInit {
         nameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
         familyFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
         usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
-        passwordFormControl: [null, [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}') ]  ],
+        passwordFormControl: [null, [Validators.required, Validators.pattern(regularExpression.password as string)]],
+        confirmPassword: [null, [Validators.required, Validators.pattern(regularExpression.password as string)]],
         emailFormControl: [null, [Validators.required, Validators.email]],
-        confirmPassword: [null, [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
         ageFormControl: [null],
         telephoneFormControl: [null]
       },
@@ -52,6 +52,8 @@ export default class UserFormComponent implements OnInit {
 
     if (this.form.valid) {
 
+      this.buttonSubmit=false;
+
       if (routerLink == '/users-management/edit/' + this.userId) {
         this.userService.editUser(this.userId, this.user);
       }
@@ -66,13 +68,21 @@ export default class UserFormComponent implements OnInit {
     }
   }
   redirect() {
-    // if (this.form.valid) {
-    // this.router.navigate(['/users-management'])
-    // }
+    if (this.form.valid) {
 
+      setTimeout(() => {
+        this.router.navigate(['/users-management'])
+      }, 3000);
+    }
   }
 
 
 }
 
 
+export class regularExpression { 
+
+ static password?:string="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
+
+
+}
