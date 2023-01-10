@@ -42,12 +42,16 @@
                 </button>
                 <mat-menu #menu="matMenu">
                   <div  class="mat-menu-style">
-                    <button mat-button class="mdi mdi-account-edit edit" matTooltip="ویرایش"
-                      matTooltipClass="example-tooltip-uppercase"
-                      routerLink="/users-management/edit/{{ user.id }}"></button>
-                    <button mat-button class="mdi mdi-account-details details" matTooltip="جزئیات کاربر"
-                      matTooltipClass="example-tooltip-uppercase" routerLinkActive="active-link"
-                      routerLink="/users-management/detail/{{ user.id }}" [id]="user.id"></button>
+                    <div class="d-flex edit">
+                      <i  class="mdi mdi-account-edit "></i>
+                      <div>ویرایش</div>
+                    </div>
+                    <div class="d-flex details">
+                      <i  class="mdi mdi-account-details "></i>
+                      <div>جزئیات</div>
+                    </div>
+                    <!-- <button mat-button class="mdi mdi-account-edit edit" routerLink="/users-management/edit/{{ user.id }}"></button> -->
+                    <!-- <button mat-button class="mdi mdi-account-details details" routerLinkActive="active-link" routerLink="/users-management/detail/{{ user.id }}" [id]="user.id"></button> -->
                       <app-delete-dialog (newItemEvent)="OnDeleteUser(user)"></app-delete-dialog>
                   </div>
                 </mat-menu>

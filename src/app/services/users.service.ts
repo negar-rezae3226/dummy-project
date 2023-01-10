@@ -22,30 +22,14 @@ export class UsersService {
     );
   }
 
-  deleteUser(userId: string) {
-    return fetch(this.apiUrl + 'users/' + `${userId}`, {
-      method: "DELETE",
-    })
-  }
+  deleteUser(userId: number) {
+    // return fetch(this.apiUrl + 'users/' + `${userId}`, {
+    //   method: "DELETE",
+    // })
 
-  addNewUser(user: User) {
-    return fetch(this.apiUrl + 'users/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    return this.http.delete<any>(this.apiUrl + 'users/' + `${userId}`);
 
-        firstName: user.firstName,
-        lastName: user.lastName,
-        username: user.username,
-        phone: user.phone,
-        password: user.password,
-        email: user.email,
-        age: user.age,
 
-      })
-    })
-      .then(res => res.json())
-      .then(console.log);
   }
 
   searchUsers(inputValue: any) {
@@ -53,36 +37,25 @@ export class UsersService {
     return this.http.get<any>(this.apiUrl + `users/search?q=${inputValue}`).pipe(
       map(items=>items.users )
     );
-
   }
 
   getSingleUser(userId: number) {
 
-    return fetch(this.apiUrl + `users/${userId}`)
-    // return this.http.get<any>(this.apiUrl + `users/${userId}`).pipe(
-    //   map(items=>items.users )
-    // );
-
+    return this.http.get<any>(this.apiUrl + `users/${userId}`);
   }
 
   editUser(userId: number, user: User) {
-    return fetch(this.apiUrl + `users/${userId}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
 
-        firstName: user.firstName,
-        lastName: user.lastName,
-        username: user.username,
-        phone: user.phone,
-        password: user.password,
-        email: user.email,
-        gender: user.gender,
-      })
-    })
-      .then(res => res.json())
-      .then(console.log);
+    return this.http.put(this.apiUrl + `users/${userId}` , user)
+
   }
+
+  addNewUser(user: User) {
+
+    return this.http.post(this.apiUrl + 'users/add' , user)
+
+  }
+
 
 
 }
