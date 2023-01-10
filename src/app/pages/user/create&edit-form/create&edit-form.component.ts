@@ -55,11 +55,17 @@ export default class UserFormComponent implements OnInit {
       this.buttonSubmit=false;
 
       if (routerLink == '/users-management/edit/' + this.userId) {
-        this.userService.editUser(this.userId, this.user);
+
+        this.userService.editUser(this.userId, this.user).subscribe(
+          response => console.log(response)
+        );
+
       }
+
       else {
-        this.userService.addNewUser(this.user);
-        console.log(this.user);
+        this.userService.addNewUser(this.user).subscribe(
+          response => console.log(response)
+        );
       }
     }
     else {
@@ -74,6 +80,12 @@ export default class UserFormComponent implements OnInit {
         this.router.navigate(['/users-management'])
       }, 3000);
     }
+  }
+
+  onClickBack() {
+
+    this.router.navigate(['/users-management'])
+
   }
 
 

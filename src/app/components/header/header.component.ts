@@ -9,9 +9,5 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   constructor(public router: Router) { }
 
-  onClickBack() {
 
-    this.router.navigate(['/users-management'])
-
-  }
 }

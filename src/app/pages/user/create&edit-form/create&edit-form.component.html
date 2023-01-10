@@ -1,6 +1,12 @@
 <div class="card m-5">
   <div class="card-body p-4">
-    <p class="card-title pb-2 title-style">اطلاعات کاربر</p>
+    <div class="d-flex justify-content-between">
+      <div></div>
+      <div class="card-title title-style pt-3">اطلاعات کاربر</div>
+      <button type="button" class="btn back-button" (click)="onClickBack()"><i
+          class="mdi mdi-arrow-left mr-5"></i></button>
+    </div>
+
     <hr />
     <form class="form-style" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="d-flex justify-content-between">
