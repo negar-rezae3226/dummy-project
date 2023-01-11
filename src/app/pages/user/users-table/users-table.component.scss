@@ -2,7 +2,7 @@
   margin: 50px;
 }
 .card-header-style {
-  padding: 30px;
+  padding: 20px 40px;
   font-size: 25px;
   display: flex;
   flex-direction: row;
@@ -14,6 +14,7 @@
   background-color: #9b5de5;
   height: 40px;
   color: aliceblue;
+  margin-right: 30px;
 }
 .users-table-style {
   color: #10002b;
@@ -88,4 +89,7 @@
   font-size: 15px;
   font-family: Vazirmatn !important;
   color: rgb(48, 48, 48);
+}
+.table-title-style{
+  padding-top: 9px;
 }

@@ -1,6 +1,6 @@
 <!-- <app-header></app-header> -->
 
-<div *ngIf="router.url === '/not-found'; else elseCond">
+<div *ngIf="router.url == '/not-found' || router.url == '/login'; else elseCond">
     <router-outlet></router-outlet>
 </div>
 
