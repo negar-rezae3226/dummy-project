@@ -4,8 +4,39 @@
 $background: #f4f4f9;
 
 body {
-  font-family: Vazirmatn;
+  font-family: Vazirmatn !important;
   margin: 0px;
   background-color: #f4f4f9;
   direction: rtl;
 }
+.app-header-style{
+  width: 100%;
+}
+.app-slidebar-style{
+  height: 757px;
+}
+
+[mat-raised-button],[mat-dialog-content]{
+  font-family: Vazirmatn !important;
+}
+.mat-mdc-form-field-required-marker{
+  padding-left: 5px;
+}
+.mat-badge-content{
+  font-size: 10px;
+  font-family: Vazirmatn !important;
+
+}
+
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  top: -8px;
+}
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+  right: -8px;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

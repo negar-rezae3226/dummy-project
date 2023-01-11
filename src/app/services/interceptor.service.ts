@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class LocalStorageeService {
+export class InterceptorService {
 
-  constructor() { }
+constructor() { }
+
 }
