@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-style">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -6,35 +5,39 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="d-flex">
-            <ul class="navbar-nav">
-                <li class="nav-item header-style">
-                    <div class="d-flex ">
-                        <div class="bell-style">
-                            <p>
-                                <img src="../../../assets/images/Flag_of_Iran.svg.png" alt="flag" class="flag-iran">
-                            </p>
-                        </div>
-                        <div class="bell-style">
+        <div class="d-flex justify-content-between">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item header-style">
+                        <div class="d-flex ">
+                            <div class="flag-style">
+                                <p>
+                                    <img src="../../../assets/images/iran-flag.png" alt="flag"
+                                        class="flag-iran rounded-circle">
+                                </p>
+                            </div>
+                            <div class="bell-style">
 
-                            <div class="demo-section">
-                                <i class="mdi mdi-bell bell-icon" matBadge="3" matBadgeColor="warn"></i>
-                                <!-- <mat-icon matBadge="1" matBadgeColor="warn">bell</mat-icon> -->
-                                  <!-- Include text description of the icon's meaning for screen-readers -->
-                              </div>
-                        </div>
-                        <div class="bell-style">
-                            <p>
-                                <i class="mdi mdi-email-newsletter"></i>
+                                <div class="demo-section">
+                                    <i class="mdi mdi-bell bell-icon" matBadge="3" matBadgeColor="warn"></i>
+                                </div>
+                            </div>
+                            <div class="bell-style">
+                                <p>
+                                    <i class="mdi mdi-email-newsletter"></i>
 
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <div class="login-signin-styles">
-                    <div class="header-login-style" routerLinkActive="active-link" routerLink="login"> ورود</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-signin-styles">
+                <div class="header-login-style d-flex justify-content-between" routerLinkActive="active-link" routerLink="login"> 
+                    <div class="login-button-style">ورود</div>
+                    <i class="mdi mdi-login-variant"></i>
                 </div>
-            </ul>
+            </div>
         </div>
     </div>
 </nav>
