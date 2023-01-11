@@ -25,9 +25,9 @@ export default class UserFormComponent implements OnInit {
 
     this.form = this.FormBuilder.group(
       {
-        nameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
-        familyFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
-        usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+        nameFormControl: [null, [Validators.required, Validators.maxLength(10)]],
+        familyFormControl: [null, [Validators.required, Validators.maxLength(10)]],
+        usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(6)]],
         passwordFormControl: [null, [Validators.required, Validators.pattern(regularExpression.password as string)]],
         confirmPassword: [null, [Validators.required, Validators.pattern(regularExpression.password as string)]],
         emailFormControl: [null, [Validators.required, Validators.email]],
@@ -52,14 +52,21 @@ export default class UserFormComponent implements OnInit {
 
     if (this.form.valid) {
 
-      this.buttonSubmit=false;
+      this.buttonSubmit = false;
 
       if (routerLink == '/users-management/edit/' + this.userId) {
 
         this.userService.editUser(this.userId, this.user).subscribe(
-          response => console.log(response)
-        );
+          response => {
+            if (response.status) {
+              this.buttonSubmit = true;
 
+              if (response.status === 200) {
+                this.router.navigate(['/users-management'])
+              }
+            }
+          }
+        );
       }
 
       else {
@@ -73,14 +80,7 @@ export default class UserFormComponent implements OnInit {
       return;
     }
   }
-  redirect() {
-    if (this.form.valid) {
 
-      setTimeout(() => {
-        this.router.navigate(['/users-management'])
-      }, 3000);
-    }
-  }
 
   onClickBack() {
 
@@ -92,9 +92,9 @@ export default class UserFormComponent implements OnInit {
 }
 
 
-export class regularExpression { 
+export class regularExpression {
 
- static password?:string="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
+  static password?: string = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
 
 
 }

@@ -46,7 +46,7 @@ export class UsersService {
 
   editUser(userId: number, user: User) {
 
-    return this.http.put(this.apiUrl + `users/${userId}` , user)
+    return this.http.put(this.apiUrl + `users/${userId}` , user, {observe: 'response'})
 
   }
 
