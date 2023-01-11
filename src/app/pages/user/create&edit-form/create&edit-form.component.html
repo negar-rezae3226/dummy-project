@@ -50,19 +50,19 @@
       <div class="d-flex justify-content-between mt-1">
         <div class="form-group form-input-style">
           <app-input [labelInput]="'رمز عبور'" [form]="form" [inputType]="hide ? 'password' : 'password'"
-            formControlInput='passwordFormControl' (inputValue)="this.user.password = $event">
+            formControlInput='passwordFormControl' (inputValue)="this.user.password = $event" [formName]="'password'">
           </app-input>
         </div>
 
         <div class="form-group form-input-style">
           <app-input [labelInput]="'تکرار رمز عبور '" [form]="form" [inputType]="hide ? 'password' : 'password'"
-            formControlInput='confirmPassword' (inputValue)="this.user.configPassword = $event"></app-input>
+            formControlInput='confirmPassword' (inputValue)="this.user.configPassword = $event" [formName]="'password'"></app-input>
         </div>
       </div>
 
 
 
-      <button class="button-64 pt-3 pb-3" role="button" type="submit" (click)="redirect()">
+      <button class="button-64 pt-3 pb-3" role="button" type="submit">
         <div *ngIf="buttonSubmit ; else elseCond">
           ثبت
         </div>
