@@ -1,36 +1,35 @@
 <div class="login-style">
     <div class="login-form-style">
-        <form action="/action_page.php" method="post" class="form-style">
+        <form class="form-style">
             <div class="imgcontainer">
                 <img src="../../../../assets/images/login-profile.png" alt="Avatar" class="avatar-login-style">
             </div>
-    
+
             <div class="container">
                 <div class="input-group flex-nowrap input-style">
                     <span class="input-group-text icon-input-style" id="addon-wrapping">
                         <i class="mdi mdi-account"></i>
                     </span>
                     <input type="text" class="form-control" placeholder="نام کاربری" aria-label="Username"
-                        aria-describedby="addon-wrapping">
+                        aria-describedby="addon-wrapping" #userName>
                 </div>
-    
                 <div class="input-group flex-nowrap pt-4">
                     <span class="input-group-text icon-input-style" id="addon-wrapping">
                         <i class="mdi mdi-lock"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                        aria-describedby="addon-wrapping">
+                    <input type="password" class="form-control" placeholder="رمز عبور" aria-label="Username"
+                        aria-describedby="addon-wrapping" #password>
                 </div>
-    
-    
-                <button type="submit" class="mt-4 mb-3" >ورود</button>
+
+
+                <button class="mt-4 mb-3" (click)="onLoginUser(userName.value,password.value,$event)">ورود</button>
                 <div class="forget pt-3">
                     <div>
                         <input type="checkbox" checked="checked" name="remember" class="font-forget"> مرا به خاطر بسپار
                     </div>
                     <div class="font-forget"> گذرواژه خود را فراموش کرده اید؟</div>
                 </div>
-    
+
             </div>
         </form>
     </div>

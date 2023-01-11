@@ -1,60 +1,47 @@
-<div class="d-flex flex-column flex-shrink-0 text-bg-dark" style="width: 280px; height: 757px;">
+<div class="d-flex flex-column flex-shrink-0 sidebar-style" style="width: 280px; height: 757px;">
     <a href="/" class="d-flex align-items-center justify-content-center mb-2 mt-4 text-white text-decoration-none">
 
         <img src="../../../assets/images/dummy-logo1.png" class="navbar-logo-style" alt="">
 
     </a>
-    <hr>
+    <br>
     <ul class="nav nav-pills flex-column mb-auto sidebar-text-style">
-        <li class="mb-1">
-            <a href="#" class="nav-link active" aria-current="page">
-                داشبورد
+        <li class="mb-1" routerLinkActive="active" >
+            <a   class="nav-link active" aria-current="page" [routerLink]="'dashboard'">
                 <i class="mdi mdi-monitor-dashboard"></i>
+                داشبورد
             </a>
         </li>
-        <li class="mb-1">
-            <a href="#" class="nav-link text-white">
-                حساب کاربری
+        <li class="mb-1"  [routerLinkActive]="'active'">
+            <a    class="nav-link text-white" [routerLink]="'users-management'">
                 <i class="mdi mdi-account"></i>
+                مدیریت کاربران 
             </a>
         </li>
         <li class="mb-1">
-            <a href="#" class="nav-link text-white">
-                سفارشات
+            <a  routerLink="products-management" routerLinkActive="active" class="nav-link text-white">
                 <i class="mdi mdi-file-document-edit"></i>
+                مدیریت محصولات
             </a>
         </li>
         <li class="mb-1">
-            <a href="#" class="nav-link text-white">
-                مالی
+            <a  routerLink="create" routerLinkActive="active-link" class="nav-link text-white">
                 <i class="mdi mdi-credit-card-outline"></i>
+                مالی
             </a>
         </li>
         <li class="mb-1">
-            <a href="#" class="nav-link text-white">
-                پشتیبانی
+            <a   routerLink="" routerLinkActive="active-link" class="nav-link text-white">
                 <i class="mdi mdi-face-agent"></i>
+                پشتیبانی
             </a>
         </li>
         <li class="mb-1">
-            <a href="#" class="nav-link text-white">
-                خروج
+            <a   routerLink="" routerLinkActive="active-link" class="nav-link text-white">
                 <i class="mdi mdi-logout-variant"></i>
+                خروج
             </a>
         </li>
     </ul>
     <hr>
-    <!-- <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>mdo</strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div> -->
 </div>

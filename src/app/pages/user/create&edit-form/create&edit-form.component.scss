@@ -1,0 +1,128 @@
+.alert-style {
+  font-weight: 600;
+}
+.title-style {
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  color: #473a8d;
+}
+.form-input-style{
+    width: 48%;
+}
+.label-style{
+    font-size: 17px;
+}
+.button-style{
+    width: 100%;
+    padding: 15px;
+    color:aliceblue;
+  background-color: #2a234e;
+
+}
+.form-control:focus{
+border-color: #cdb4db;
+box-shadow: 0 0 0 0.25rem #e6d8ef;
+}
+
+// input.ng-invalid.ng-touched{
+//     border: 1px solid red;
+//     box-shadow: 0 0 0 0.25rem rgb(255, 215, 215);
+// }
+// select.ng-invalid.ng-touched{
+//     border: 1px solid red;
+//     box-shadow: 0 0 0 0.01rem rgb(255, 215, 215);
+// }
+.formcontrol-style{
+    color: rgb(247, 56, 56);
+}
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+  width: 200px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+.mat-mdc-text-field-wrapper{
+  padding-left: 200px !important;
+}
+.mat-label-style {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 17px;
+  font-family:  Vazirmatn;
+}
+.input-matinput-style {
+  display: unset;
+}
+.form-style{
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 20px;
+}
+/* CSS */
+.button-64 {
+  align-items: center;
+  // background-image: linear-gradient(144deg,#ca81fe, #5B42F3 50%,#00DDEB);
+  background-color: #342c5f;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: #290f3f;
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    text-align: center;
+    min-width: 20%;
+    margin-right: 40%;
+    margin-top: 20px;
+  }
+}
+.back-button{
+  color:#473a8d;
+  font-size: 30px;
+}

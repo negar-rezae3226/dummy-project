@@ -16,12 +16,12 @@ input[type="password"] {
   //   margin: 8px 0;
   display: inline-block;
   box-sizing: border-box;
-  background-color: #385272;
-  color: aliceblue;
+  background-color: #a7a3bc;
+  color: #342c5f;
 }
 
 button {
-  background-color: #071b41;
+  background-color: #1a1631;
   color: white;
   padding: 14px 20px;
   //   margin: 8px 0;
@@ -75,25 +75,28 @@ span.psw {
   justify-content: space-between;
 }
 ::placeholder {
-  color: white;
+  color: #342c5f;
   opacity: 1;
 }
 .icon-input-style {
   color: white;
-  background-color: #071b41;
+  background-color: #1a1631;
 }
 .font-forget {
   font-size: 13px;
-  color: #1d3557;
+  color: #342c5f;
   cursor: pointer;
 }
 input[type="checkbox"] {
 
-  accent-color: #071b41;
+  accent-color: #342c5f;
 }
 
 .login-style{
   background-image: url(../../../../assets/images/background-login.jpg);
   margin: 0px;
-  padding: 20px 0px 133px 0px;
+  padding: 20px 0px 141px 0px;
+}
+.form-control:focus{
+background-color: #a7a3bc;
 }

@@ -1,0 +1,12 @@
+<div class="dialog-style">
+    <h1 mat-dialog-title class="alert-icon-style">
+        <i class="mdi mdi-alert-circle"></i>
+    </h1>
+    <div mat-dialog-content class="question-style pb-4">
+        آیا از حذف اطمینان دارید؟
+    </div>
+    <div mat-dialog-actions class="d-flex justify-content-center">
+        <button (click)="onCancel()" mat-raised-button mat-dialog-close class="no-button-style">خیر</button>
+        <button (click)="onConfirm()" mat-raised-button  mat-dialog-close cdkFocusInitial class="yes-button-style">بله</button>
+    </div>
+</div>
