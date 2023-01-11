@@ -52,7 +52,7 @@
 .details{
   padding-left: 5px;
   font-size: 25px;
-  color: #ca8608;
+  color: #f17105;
   cursor: pointer;
 }
 
@@ -83,4 +83,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.edit-details-text{
+  font-size: 15px;
+  font-family: Vazirmatn !important;
+  color: rgb(48, 48, 48);
 }
