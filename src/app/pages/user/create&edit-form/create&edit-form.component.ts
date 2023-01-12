@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.interface';
 import { UsersService } from 'src/app/services/users.service';
 import { ValidationComponent } from '../../validation/validation.component';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'create-edit-form',
   templateUrl: './create&edit-form.component.html',
@@ -25,9 +26,9 @@ export default class UserFormComponent implements OnInit {
 
     this.form = this.FormBuilder.group(
       {
-        nameFormControl: [null, [Validators.required, Validators.maxLength(10)]],
-        familyFormControl: [null, [Validators.required, Validators.maxLength(10)]],
-        usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(6)]],
+        nameFormControl: [null, [Validators.required, Validators.maxLength(10),Validators.minLength(3)]],
+        familyFormControl: [null, [Validators.required, Validators.maxLength(8),Validators.minLength(4)]],
+        usernameFormControl: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
         passwordFormControl: [null, [Validators.required, Validators.pattern(regularExpression.password as string)]],
         confirmPassword: [null, [Validators.required, Validators.pattern(regularExpression.password as string)]],
         emailFormControl: [null, [Validators.required, Validators.email]],
@@ -38,9 +39,12 @@ export default class UserFormComponent implements OnInit {
         validators: [ValidationComponent.match('passwordFormControl', 'confirmPassword')]
       }
     )
+    
+    
   }
 
   onSubmit() {
+
 
 
     this.userId = +this.active.snapshot.params['id'];
@@ -57,7 +61,7 @@ export default class UserFormComponent implements OnInit {
       if (routerLink == '/users-management/edit/' + this.userId) {
 
         this.userService.editUser(this.userId, this.user).subscribe(
-          response => {
+          (response) => {
             if (response.status) {
               this.buttonSubmit = true;
 
@@ -65,7 +69,9 @@ export default class UserFormComponent implements OnInit {
                 this.router.navigate(['/users-management'])
               }
             }
-          }
+          },
+          // (error) => console.log('error')
+          
         );
       }
 
