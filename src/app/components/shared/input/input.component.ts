@@ -18,6 +18,9 @@ export class InputComponent implements DoCheck {
   @Input() inputFormControl: FormControl | any;
   @Input() form: FormGroup | any;
   @Input() value: any = "";
+  @Input() maxLenValue: number = 0;
+  @Input() minLenValue: number = 0;
+
   hide: boolean = true;
   hideIcon: boolean = false;
 
@@ -26,14 +29,20 @@ export class InputComponent implements DoCheck {
   ngOnInit(): void {
     this.onEmitValue();
 
+    let theValidators = this.inputFormControl?.validator('');
+    console.log('inputFormControl', theValidators);
+
+
+
+
   }
 
 
   onEmitValue() {
     this.inputValue.emit(this.value);
     if (this.value && this.formName == 'password') {
-      
-      this.hideIcon=true;
+
+      this.hideIcon = true;
     }
 
   }
@@ -43,7 +52,7 @@ export class InputComponent implements DoCheck {
 
 
 
-    }
+  }
 
 
 

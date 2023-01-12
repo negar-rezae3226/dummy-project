@@ -1,30 +1,40 @@
 <div class="example-container" [formGroup]="form">
     <mat-form-field appearance="outline" dir="rtl" class="input-matinput-style">
         <mat-label class="mat-label-style">{{labelInput}}</mat-label>
-        
-        <input matInput *ngIf="formName=='password'; else other" [type]="hide ? 'password' : 'text'"
-            class="input-matinput-style" (input)="onEmitValue()" [formControlName]="formControlInput"
-            [(ngModel)]="value">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon *ngIf="hideIcon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        
+
+        <div *ngIf="formName=='password'; else other">
+            <input matInput [type]="hide ? 'password' : 'text'" (input)="onEmitValue()"
+                [formControlName]="formControlInput" [(ngModel)]="value">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon *ngIf="hideIcon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </div>
+
+
         <ng-template #other>
             <input matInput [type]="inputType" class="input-matinput-style" (input)="onEmitValue()"
                 [formControlName]="formControlInput" [(ngModel)]="value">
         </ng-template>
 
         <mat-error *ngIf="form.get(formControlInput).hasError('maxlength')" class="error-input">
-            حداکثر تعداد کاراکتر {{labelInput}} 10 است!
+
+            حداکثر تعداد کاراکتر {{labelInput}} {{form.get(formControlInput).errors?.maxlength?.requiredLength}} است!
+
         </mat-error>
 
         <mat-error *ngIf="form.get(formControlInput).hasError('minlength')" class="error-input">
-            حداقل تعداد کاراکتر {{labelInput}} 3 است!
+
+            حداقل تعداد کاراکتر {{labelInput}} {{form.get(formControlInput).errors?.minlength?.requiredLength}} است!
+
         </mat-error>
 
         <mat-error *ngIf="form.get(formControlInput).hasError('pattern')" class="error-input">
             رمز عبور شامل حروف بزرگ و کوچک،عدد و علاِئم می باشد!
+        </mat-error>
+
+        <mat-error *ngIf="form.get(formControlInput).hasError('email')" class="error-input">
+            ایمیل وارد شده معتبر نمی باشد!
         </mat-error>
 
         <mat-error *ngIf="form.get(formControlInput).hasError('matching')" class="error-input">تکرار رمز عبور با رمز
