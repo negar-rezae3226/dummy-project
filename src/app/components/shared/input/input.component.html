@@ -3,7 +3,7 @@
         <mat-label class="mat-label-style">{{labelInput}}</mat-label>
         
         <div *ngIf="formName=='password'; else other">
-            <input matInput [type]="hide ? 'password' : 'text'" class="input-matinput-style" (input)="onEmitValue()"
+            <input matInput [type]="hide ? 'password' : 'text'" (input)="onEmitValue()"
                 [formControlName]="formControlInput" [(ngModel)]="value">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
