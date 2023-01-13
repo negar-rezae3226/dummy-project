@@ -52,7 +52,9 @@ export class UsersService {
 
   addNewUser(user: User) {
 
-    return this.http.post(this.apiUrl + 'users/add' , user)
+    return this.http.post(this.apiUrl + 'users/add', user, {
+      observe: 'response',
+    });
 
   }
 

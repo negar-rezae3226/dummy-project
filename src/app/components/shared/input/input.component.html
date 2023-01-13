@@ -2,14 +2,14 @@
     <mat-form-field appearance="outline" dir="rtl" class="input-matinput-style">
         <mat-label class="mat-label-style">{{labelInput}}</mat-label>
 
-        <div *ngIf="formName=='password'; else other">
-            <input matInput [type]="hide ? 'password' : 'text'" (input)="onEmitValue()"
+
+            <input *ngIf="formName=='password'; else other" matInput [type]="hide ? 'password' : 'text'" (input)="onEmitValue()"
                 [formControlName]="formControlInput" [(ngModel)]="value">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            <button *ngIf="formName=='password'" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon *ngIf="hideIcon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-        </div>
+
 
 
         <ng-template #other>

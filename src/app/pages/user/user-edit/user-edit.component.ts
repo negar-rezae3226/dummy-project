@@ -24,7 +24,7 @@ export class UserEditComponent {
 
 
     this.userId = +this.active.snapshot.params['id'];
-    console.log(this.userId);
+
 
     this.UsersService.getSingleUser(this.userId).subscribe(
       (response: User) => { this.selectedUser = response }
