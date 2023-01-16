@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 // @import '~@angular/material/theming';
+
 @import url("../src/assets/font/Vazir/Vazirmatn-font-face.css");
+@import './them.scss';
 @import './app/pages/account/login/login.component.scss';
 @import './app/pages/user/users-table/users-table.component.scss';
 
@@ -10,12 +12,12 @@ $custom-typography: mat-typography-config(
 );
 
 @include angular-material-typography($custom-typography);
-$background: #f4f4f9;
+$background: $white;
 
 body {
   font-family: Vazirmatn !important;
   margin: 0px;
-  background-color: #f4f4f9;
+  background-color: $white;
   direction: rtl;
 }
 .app-header-style{
