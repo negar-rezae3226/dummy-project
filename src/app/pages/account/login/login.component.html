@@ -1,4 +1,4 @@
-<div class="login-style">
+<!-- <div class="login-style">
     <div class="login-form-style">
         <form class="form-style">
             <div class="imgcontainer">
@@ -23,6 +23,47 @@
 
 
                 <button class="mt-4 mb-3" (click)="onLoginUser(userName.value,password.value,$event)">ورود</button>
+                <div class="forget pt-3">
+                    <div>
+                        <input type="checkbox" checked="checked" name="remember" class="font-forget"> مرا به خاطر بسپار
+                    </div>
+                    <div class="font-forget"> گذرواژه خود را فراموش کرده اید؟</div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<div class="login-style">
+    <div class="login-form-style">
+        <form class="form-style" [formGroup]="form" (ngSubmit)="onSubmit(username.value,password.value,$event)">
+            <div class="imgcontainer">
+                <img src="../../../../assets/images/login-profile.png" alt="Avatar" class="avatar-login-style">
+            </div>
+
+            <div class="container">
+                <div>
+                    <mat-form-field dir="rtl" class="input-matinput-style login" appearance="outline">
+                        <input matInput class="input-text-style" placeholder="نام کاربری" formControlName="username"
+                            #username required>
+                        <mat-icon matSuffix class="mat-icon-style">
+                            <i class="mdi mdi-account"></i>
+                        </mat-icon>
+                    </mat-form-field>
+                    <mat-form-field dir="rtl" class="input-matinput-style login" appearance="outline">
+                        <input matInput type="hide ? 'password' : 'text'" class="input-text-style"
+                            placeholder="رمز عبور" formControlName="password" #password required>
+                        <mat-icon matSuffix class="mat-icon-style">
+                            <i class="mdi mdi-lock"></i>
+                        </mat-icon>
+                    </mat-form-field>
+                    <div *ngIf="login == false" class="error-input">
+                        * نام کاربری یا رمز عبور اشتباه است!
+                    </div>
+                </div>
+
+                <button class="mt-2 mb-3" role="button" type="submit">ورود</button>
                 <div class="forget pt-3">
                     <div>
                         <input type="checkbox" checked="checked" name="remember" class="font-forget"> مرا به خاطر بسپار

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { LocalStorageService } from 'src/app/services/LocalStorage.service';
 import { LoginUser } from 'src/app/models/loginUser.interface';
+import { loginResponse } from 'src/app/models/loginResponse';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,46 +13,52 @@ import { LoginUser } from 'src/app/models/loginUser.interface';
 })
 export class LoginComponent {
 
-  loginUserApi: LoginUser[] = [];
+  loginUserApi: LoginUser = {};
+  form!: FormGroup;
+  login: boolean = true;
+  hide: boolean = true;
 
-  constructor(private loginService: LoginService, private localStorageToken: LocalStorageService) { }
+
+  constructor(private router:Router,private fb: FormBuilder, private loginService: LoginService, private localStorageToken: LocalStorageService) { }
+
+  ngOnInit(): void {
 
 
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
 
-  onLoginUser(userName: string, password: string, e: Event) {
+    });
+
+  }
+
+
+  onSubmit(username: string, password: string, e: Event) {
+
+    this.loginUserApi.username = username;
+    this.loginUserApi.password = password;
 
     e.preventDefault();
 
-    this.loginService.loginApi(userName, password)
-      .then((res) =>
-        res.json().then((data) => ({ status: res.status, body: data }))
-      )
-      .then((res: loginResponse) => {
-        if (res.status == 200) {
+    this.loginService.loginApi(this.loginUserApi).subscribe(
+      (response) => {
 
-          this.localStorageToken.saveData('token', res.body?.token)
+        if (response.status == 200) {
+          this.localStorageToken.saveData('token', (response.body?.token as string));
+          this.router.navigate(['/']);
         }
-      });
+      },
+      (error) => {
+        if (error.status === 400) {
+          this.login = false;
+        }
+      },
+
+    );
 
 
   }
 
 }
 
-
-export interface loginResponse {
-  body?: any;
-  status?: any;
-}
-
-export interface loginResponseBody {
-  email?: string;
-  firstName?: string;
-  gender?: string;
-  id?: number;
-  image?: string;
-  lastName?: string;
-  token?: string;
-  username?: string;
-}
 
