@@ -32,7 +32,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="login-signin-styles">
+            <div *ngIf="loginButton == true " class="login-signin-styles">
                 <div class="header-login-style d-flex justify-content-between" routerLinkActive="active-link" routerLink="login"> 
                     <div class="login-button-style">ورود</div>
                     <i class="mdi mdi-login-variant"></i>

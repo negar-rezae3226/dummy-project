@@ -1,102 +1,168 @@
-.login-form-style {
-  margin: 80px 550px 0px 550px;
-  // background-image: url(../../../../assets/images/background-login.jpg);
-  background-color: #d7d3d7;
-  border-radius: 90px;
-}
-.form-style {
-  padding: 50px;
-  // border-radius: 20px;
-}
+@import "../../../components/shared/input/input.component.scss";
 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  //   margin: 8px 0;
-  display: inline-block;
-  box-sizing: border-box;
-  background-color: #a7a3bc;
-  color: #342c5f;
-}
-
-button {
-  background-color: #1a1631;
-  color: white;
-  padding: 14px 20px;
-  //   margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
-
-.avatar-login-style {
-  width: 100px;
-  height: 100px;
-  border-radius: 60px;
-  opacity: 0.5;
-}
-.forget {
-  display: flex;
-  justify-content: space-between;
-}
-::placeholder {
-  color: #342c5f;
-  opacity: 1;
-}
-.icon-input-style {
-  color: white;
-  background-color: #1a1631;
-}
-.font-forget {
-  font-size: 13px;
-  color: #342c5f;
-  cursor: pointer;
-}
-input[type="checkbox"] {
-
-  accent-color: #342c5f;
-}
-
-.login-style{
+.login-style {
   background-image: url(../../../../assets/images/background-login.jpg);
   margin: 0px;
   padding: 20px 0px 141px 0px;
-}
-.form-control:focus{
-background-color: #a7a3bc;
+  // background-size: 1000px 2000px;
+  font-family:Vazirmatn ;
+
+  .input-text-style {
+    color: #342c5f !important;
+    font-family: Vazirmatn !important;
+  }
+
+
+    .mat-icon-style {
+      padding: 9px !important;
+      margin-bottom: 16px;
+      font-size: 31px;
+      color: #342c5f;
+    }
+    .mat-mdc-text-field-wrapper {
+      background-color: #a7a3bc;
+    }
+
+    .mdc-text-field--outlined:not(
+        .mdc-text-field--disabled
+      ).mdc-text-field--focused
+      .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(
+        .mdc-text-field--disabled
+      ).mdc-text-field--focused
+      .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(
+        .mdc-text-field--disabled
+      ).mdc-text-field--focused
+      .mdc-notched-outline__trailing {
+      border-color: #342c5f;
+    }
+    .login{
+      .mdc-notched-outline__leading {
+        border-color: #a7a3bc;
+      }
+      .mdc-notched-outline__trailing {
+        border-color: #a7a3bc;
+      }
+
+    }
+    .loginpass{
+      .mdc-notched-outline__leading {
+        border-color: #a7a3bc;
+      }
+      .mdc-notched-outline__trailing {
+        border-color: #a7a3bc;
+      }
+    }
+
+    .mdc-text-field--outlined .mdc-text-field__input {
+      background-color: #a7a3bc;
+    }
+    .mat-mdc-form-field-icon-suffix{
+      padding: 0px 20px 0px 4px !important;
+    }
+
+
+  .login-form-style {
+    margin: 80px 550px 0px 550px;
+    // background-image: url(../../../../assets/images/background-login.jpg);
+    background-color: #d7d3d7;
+    border-radius: 90px;
+  }
+  .form-style {
+    padding: 50px;
+    // border-radius: 20px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    //   margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #a7a3bc;
+    color: #342c5f;
+  }
+
+  button {
+    background-color: #1a1631;
+    color: white;
+    padding: 14px 20px;
+    //   margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .imgcontainer {
+    text-align: center;
+    margin: 0px 0 24px 0;
+  }
+
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+
+  .avatar-login-style {
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    opacity: 0.5;
+  }
+  .forget {
+    display: flex;
+    justify-content: space-between;
+  }
+  ::placeholder {
+    color: #342c5f;
+    opacity: 1;
+  }
+  .icon-input-style {
+    color: white;
+    background-color: #1a1631;
+  }
+  .font-forget {
+    font-size: 13px;
+    color: #342c5f;
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    accent-color: #342c5f;
+  }
+
+  .form-control:focus {
+    background-color: #a7a3bc;
+  }
+  .error-input{
+
+    color: red;
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
 }
