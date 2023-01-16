@@ -38,7 +38,7 @@
     td {
       text-align: center;
       font-size: 15px;
-      padding: 20px 0px;
+      padding: 8px 0px;
     }
   }
 }
@@ -98,5 +98,12 @@ mat-paginator{
 }
 table{
   width: 100%;
+}
+.skip-font-style{
+  font-size: 20px;
+  color: #10002b;
+}
+.form-control{
+  width: unset !important;
 }
 

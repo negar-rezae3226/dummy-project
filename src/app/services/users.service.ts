@@ -13,14 +13,16 @@ export class UsersService {
 
   constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
 
-  ngOnInit(): void {
-
-  }
-
 
   getAllUsers():Observable<User> {
 
     return this.http.get<any>(myGlobals.apiUrl + 'users').pipe(
+      map(items => items.users)
+    );
+  }
+
+  limitAndSkipUsers(limit:number , skip:number) {
+    return this.http.get<any>(myGlobals.apiUrl + 'users?limit=' + `${limit}` + '&skip=' + `${skip}` + '&select=firstName,lastName,age,username,password,phone,email').pipe(
       map(items => items.users)
     );
   }
