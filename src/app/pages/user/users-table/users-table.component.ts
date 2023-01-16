@@ -154,15 +154,19 @@ export class UsersTableComponent {
 
   skipUsers() {
 
-    this.defaultSkip = this.defaultSkip + this.addLimit;
+
+    this.defaultSkip = this.defaultSkip+this.addLimit;
+    console.log('default', this.defaultSkip);
     this.usersFunc();
 
   }
   onSelected(): void {
     
     this.addLimit = this.teams.nativeElement.value;
-    console.log(this.addLimit);
-    
+    this.defaultLimit = this.addLimit;
+    console.log('on select',this.addLimit);
+    this.usersFunc(); 
+
     // console.log(this.defaultLimit);
 
   }
