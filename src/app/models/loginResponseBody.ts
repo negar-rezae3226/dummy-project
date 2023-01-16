@@ -5,7 +5,7 @@ export interface loginResponseBody {
     id?: number;
     image?: string;
     lastName?: string;
-    token?: string;
+    token?: string ;
     username?: string;
   }
   

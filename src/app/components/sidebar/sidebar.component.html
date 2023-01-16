@@ -36,8 +36,8 @@
                 پشتیبانی
             </a>
         </li>
-        <li class="mb-1">
-            <a   routerLink="" routerLinkActive="active-link" class="nav-link text-white">
+        <li *ngIf="!deleteLogOutButton" class="mb-1">
+            <a (click)="deleteLocalStorage()" class="nav-link text-white">
                 <i class="mdi mdi-logout-variant"></i>
                 خروج
             </a>

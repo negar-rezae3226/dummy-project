@@ -48,48 +48,55 @@
   font-size: 25px;
   color: #390099;
   cursor: pointer;
-
 }
-.details{
+.details {
   padding-left: 5px;
   font-size: 25px;
   color: #f17105;
   cursor: pointer;
 }
 
-.table-body{
-    overflow-y: scroll;
-    height: 450px;
-    width: 100%;
+.table-body {
+  overflow-y: scroll;
+  height: 450px;
+  width: 100%;
 }
 .mdc-tooltip__surface {
   background-color: #9692af !important;
 }
 
-.not-found{
+.not-found {
   text-align: center;
   padding-top: 110px;
   font-size: 30px;
   font-weight: 70px;
   color: #473a8d;
 }
-.table-notfound{
+.table-notfound {
   width: 190px;
   height: 130px;
 }
 
-.mat-menu-style{
-
+.mat-menu-style {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.edit-details-text{
+.edit-details-text {
   font-size: 15px;
   font-family: Vazirmatn !important;
   color: rgb(48, 48, 48);
 }
-.table-title-style{
+.table-title-style {
   padding-top: 9px;
 }
+mat-paginator{
+  .mat-mdc-text-field-wrapper {
+    height: unset !important;
+  }
+}
+table{
+  width: 100%;
+}
+

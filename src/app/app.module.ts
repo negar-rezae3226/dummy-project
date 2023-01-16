@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +29,9 @@ import { InputComponent } from './components/shared/input/input.component';
 import { DeleteDialogComponent } from './components/shared/delete-dialog/open-dialog.component';
 import { DialogComponent } from './components/shared/delete-dialog/dialog/dialog.component';
 import { ValidationComponent } from './pages/validation/validation.component';
+import { LocalStorageService } from './services/LocalStorage.service';
+import { AuthInterceptorServiceService } from './services/auth-interceptor-service.service';
+
 
 
 
@@ -66,7 +69,14 @@ import { ValidationComponent } from './pages/validation/validation.component';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    LocalStorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorServiceService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -109,10 +109,14 @@ export default class UserFormComponent implements OnInit {
               }
             }
           }
-          // (error) => console.log('error')
+
         );
       } else {
+        console.log(this.user);
+        
         this.userService.addNewUser(this.user).subscribe((response) => {
+          console.log(response);
+          
           if (response.status) {
             this.buttonSubmit = true;
 
