@@ -1,5 +1,5 @@
 // import { Component, OnInit } from '@angular/core';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table'
@@ -7,14 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.interface';
 import { DataService } from 'src/app/services/data.service';
 import { UsersService } from 'src/app/services/users.service';
-
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
 
 
 @Component({
@@ -50,17 +42,17 @@ export interface UserData {
 
 //     this.usersList = response;
 
-//     let index = this.usersList.findIndex((user) => user.id == this.user?.id);
+// let index = this.usersList.findIndex((user) => user.id == this.user?.id);
 
-//     if (this._dataService.UpdateORAddUser == false) {
-//       if (this.user) {
-//         this.usersList[index] = this.user;
-//       }
-//     } else {
-//       if (this.user) {
-//         this.usersList.push(this.user);
-//       }
-//     }
+// if (this._dataService.UpdateORAddUser == false) {
+//   if (this.user) {
+//     this.usersList[index] = this.user;
+//   }
+// } else {
+//   if (this.user) {
+//     this.usersList.push(this.user);
+//   }
+// }
 //   });
 
 
@@ -79,66 +71,71 @@ export interface UserData {
 //     this.usersList = response;
 //   });
 // }
-//   trackByFunc(index: number, el: any) {
-//     return el.id;
-//   }
+
 
 
 // }
 
 
 export class UsersTableComponent {
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'userName'];
-  displayedColumns: string[] = ['firstName', 'lastName', 'age', 'username', 'password', 'phone', 'email', 'detail'];
-  // usersList: User[] = [];
-  usersList: any;
 
+  @ViewChild('teams') teams!: ElementRef;
+  displayedColumns: string[] = ['firstName', 'lastName', 'age', 'username', 'password', 'phone', 'email', 'detail'];
+  usersList: any;
   deleteProduct: User[] = [];
   element: any;
   searchUser: User[] = [];
   user?: User;
-  // dataSource: MatTableDataSource<UserData>;
-  dataSource: any ;
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource: any;
+  defaultLimit: number = 5;
+  addLimit: number = 5;
+
+  defaultSkip: number = 0;
+
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  // @ViewChild(MatPaginator)
-  // paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
+
 
   constructor(
     private userService: UsersService,
     private router: Router,
     private route: ActivatedRoute,
     private _dataService: DataService
-  ) {
-
-    // const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
-
-    // this.dataSource = new MatTableDataSource(users);
-  }
+  ) { }
 
   ngOnInit(): void {
 
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    
+
     this._dataService.sharedParam.subscribe((user) => {
       if (user) {
         this.user = user;
       }
     });
+    this.usersFunc();
+  }
 
-    this.userService.getAllUsers().subscribe((response) => {
+
+
+  usersFunc() {
+    this.userService.limitAndSkipUsers(this.defaultLimit, this.defaultSkip).subscribe((response) => {
 
       this.usersList = response;
-      console.log(this.usersList);
-      
-      
-      this.dataSource=new MatTableDataSource<User>(this.usersList)
 
+      let index = this.usersList.findIndex((user: { id: number | undefined; }) => user.id == this.user?.id);
+
+      if (this._dataService.UpdateORAddUser == false) {
+        if (this.user) {
+          this.usersList[index] = this.user;
+        }
+      }
+       else {
+
+        if (this.user) {
+          this.usersList.push(this.user);
+        }
+      }
     });
-
   }
 
   OnDeleteUser(user: any) {
@@ -154,10 +151,21 @@ export class UsersTableComponent {
   onUserRedirect() {
     this.router.navigate(['users-management/create']);
   }
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
+
+  skipUsers() {
+
+    this.defaultSkip = this.defaultSkip + this.addLimit;
+    this.usersFunc();
+
+  }
+  onSelected(): void {
+    
+    this.addLimit = this.teams.nativeElement.value;
+    console.log(this.addLimit);
+    
+    // console.log(this.defaultLimit);
+
+  }
 
 
 
