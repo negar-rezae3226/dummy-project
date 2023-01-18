@@ -14,6 +14,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormValidationErrorsComponent } from './form-validation-errors/form-validation-errors.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +31,8 @@ import { FormValidationErrorsComponent } from './form-validation-errors/form-val
     MatSelectModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -43,6 +47,8 @@ import { FormValidationErrorsComponent } from './form-validation-errors/form-val
     MatSelectModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   declarations: [
     FormValidationErrorsComponent

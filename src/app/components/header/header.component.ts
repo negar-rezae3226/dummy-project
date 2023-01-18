@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/LocalStorage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(public router: Router) { }
+  loginButton: boolean = true;
 
+  constructor(public router: Router, public localStorageService: LocalStorageService) { }
+  ngOnInit(): void {
+
+    this.localStorageService.getItem('token');
+
+    let token:string = this.localStorageService.getValueInLocalStorage;
+
+    if (token) {
+
+      this.loginButton = false;
+
+    }
+
+
+
+
+  }
 
 }
