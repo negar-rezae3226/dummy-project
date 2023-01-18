@@ -9,15 +9,28 @@ import { LocalStorageService } from 'src/app/services/LocalStorage.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-deleteLogOutButton:boolean=false;
+  deleteLogOutButton: boolean = false;
+  username: any = '';
 
-constructor(private localStorage:LocalStorageService,private router:Router){}
+  constructor(private localStorage: LocalStorageService, private router: Router) { }
 
-  deleteLocalStorage(){
+  deleteLocalStorage() {
 
     this.localStorage.deleteData('token');
-    this.deleteLogOutButton=true;
+    this.deleteLogOutButton = true;
     this.router.navigate(['/login']);
-    
+
   }
+  ngOnInit(): void {
+
+    this.localStorage.getItem('username');
+    this.username = this.localStorage.getValueInLocalStorage;
+    console.log(this.username);
+
+  }
+
+
+
+
+
 }

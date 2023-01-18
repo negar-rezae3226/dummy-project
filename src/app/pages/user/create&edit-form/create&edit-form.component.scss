@@ -1,4 +1,6 @@
-
+.user-form{
+  margin-right: 280px;
+}
 
 .alert-style {
   font-weight: 600;
@@ -119,4 +121,7 @@ input.example-right-align {
 .back-button{
   color:var(--second_purple);
   font-size: 30px;
+}
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+  border-color: var(--white);
 }

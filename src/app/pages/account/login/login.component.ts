@@ -38,6 +38,8 @@ export class LoginComponent {
     this.loginUserApi.username = username;
     this.loginUserApi.password = password;
 
+    this.localStorageToken.saveData('username', this.loginUserApi.username);
+
     e.preventDefault();
 
     this.loginService.loginApi(this.loginUserApi).subscribe(

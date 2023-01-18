@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 sidebar-style" style="width: 280px; height: 757px;">
+<!-- <div class="d-flex flex-column flex-shrink-0 sidebar-style" style="width: 280px; height: 757px;">
     <a href="/" class="d-flex align-items-center justify-content-center mb-2 mt-4 text-white text-decoration-none">
 
         <img src="../../../assets/images/dummy-logo1.png" class="navbar-logo-style" alt="">
@@ -44,4 +44,87 @@
         </li>
     </ul>
     <hr>
-</div>
+</div> -->
+
+
+<!-- <div class="navbarStyle"> -->
+    <nav class="main-menu navbarStyle " >
+
+        <!-- <a class="d-flex align-items-center flex-column justify-content-center mb-2 mt-4 text-white text-decoration-none">
+            <img src="../../../assets/images/user-image.jpg" class="navbar-logo-style" alt="">
+            <p class="pt-2">{{username}}</p>
+        </a> -->
+        <div class="d-flex title-sideMenu align-items-center justify-content-center">
+            <img src="../../../assets/images/logo2.png" class="navbar-logo-style">
+            <div class="title-text">
+                DUMMY JSON
+            </div>
+        </div>
+    
+    
+        <ul class="pt-3">
+            <li routerLinkActive="active" [routerLink]="'dashboard'">
+                <a>
+                    <i class="fa fa-tachometer fa-2x"></i>
+                    <span class="nav-text">
+                        داشبورد
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav"  routerLinkActive="active" [routerLink]="'users-management'">
+                <a>
+                    <i class="fa fa-user fa-2x"></i>
+                    <span class="nav-text">
+                        مدیریت کاربران
+                    </span>
+                </a>
+    
+            </li>
+            <li class="has-subnav"  routerLinkActive="active">
+                <a>
+                    <i class="fa fa-th-large fa-2x"></i>
+                    <span class="nav-text">
+                        مدیریت محصولات
+                    </span>
+                </a>
+    
+            </li>
+            <li class="has-subnav">
+                <a>
+                    <i class="fa fa-users fa-2x"></i>
+                    <span class="nav-text">
+                        پشتیبانی
+                    </span>
+                </a>
+    
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-credit-card fa-2x"></i>
+                    <span class="nav-text">
+                        مالی
+                    </span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="#">
+                    <i class="fa fa-cog fa-2x"></i>
+                    <span class="nav-text">
+                        تنظیمات
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <ul class="logout"  *ngIf="!deleteLogOutButton">
+            <li (click)="deleteLocalStorage()">
+                <a>
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        خروج
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+<!-- </div> -->
