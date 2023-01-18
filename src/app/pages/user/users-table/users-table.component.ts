@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table'
 import { ActivatedRoute, Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { User } from 'src/app/models/user.interface';
 import { DataService } from 'src/app/services/data.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -14,88 +15,27 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './users-table.component.html',
   styleUrls: ['./users-table.component.scss'],
 })
-// export class UsersTableComponent implements OnInit {
-// usersList: User[] = [];
-// deleteProduct: User[] = [];
-// element: any;
-// searchUser: User[] = [];
-// user?: User;
-
-
-// constructor(
-//   private userService: UsersService,
-//   private router: Router,
-//   private route: ActivatedRoute,
-//   private _dataService: DataService
-// ) {}
-
-// ngOnInit(): void {
-//   this._dataService.sharedParam.subscribe((user) => {
-//     if (user) {
-//       this.user = user;
-//     }
-//   });
-
-//   this.userService.getAllUsers().subscribe((response) => {
-
-
-
-//     this.usersList = response;
-
-// let index = this.usersList.findIndex((user) => user.id == this.user?.id);
-
-// if (this._dataService.UpdateORAddUser == false) {
-//   if (this.user) {
-//     this.usersList[index] = this.user;
-//   }
-// } else {
-//   if (this.user) {
-//     this.usersList.push(this.user);
-//   }
-// }
-//   });
-
-
-
-//   }
-
-
-
-// OnDeleteUser(user: any) {
-//   this.element = document.getElementById(user.id) as HTMLElement;
-//   this.element.parentElement.removeChild(this.element);
-// }
-
-// onSearchUser(e: string) {
-//   this.userService.searchUsers(e).subscribe((response: User[]) => {
-//     this.usersList = response;
-//   });
-// }
-
-
-
-// }
-
 
 export class UsersTableComponent {
 
-  @ViewChild('teams') teams!: ElementRef;
-  displayedColumns: string[] = ['firstName', 'lastName', 'age', 'username', 'password', 'phone', 'email', 'detail'];
   usersList: any;
   deleteProduct: User[] = [];
   element: any;
   searchUser: User[] = [];
   user?: User;
-  dataSource: any;
   defaultLimit: number = 5;
   addLimit: number = 5;
-
+  pageNumber: number = 1;
   defaultSkip: number = 0;
-
-
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  allPage: number = 0;
+  nextLoading: boolean = true;
+  beforeLoading: boolean = true;
+  numbers: any = [
+    {value: 5, viewValue: 5},
+    {value: 10, viewValue: 10},
+    {value: 20, viewValue: 20},
+  ];
+  selectedNumber = this.numbers[0].value;
 
   constructor(
     private userService: UsersService,
@@ -106,36 +46,48 @@ export class UsersTableComponent {
 
   ngOnInit(): void {
 
-
     this._dataService.sharedParam.subscribe((user) => {
       if (user) {
         this.user = user;
       }
     });
-    this.usersFunc();
+    this.getUsersApi();
   }
 
 
+  getUsersApi() {
 
-  usersFunc() {
-    this.userService.limitAndSkipUsers(this.defaultLimit, this.defaultSkip).subscribe((response) => {
+    this.userService.limitAndSkipUsers(this.defaultLimit, this.defaultSkip)
+      .subscribe((response) => {
 
-      this.usersList = response;
 
-      let index = this.usersList.findIndex((user: { id: number | undefined; }) => user.id == this.user?.id);
+        console.log(response.body.users);
 
-      if (this._dataService.UpdateORAddUser == false) {
-        if (this.user) {
-          this.usersList[index] = this.user;
+        if (response.status == 200) {
+          this.nextLoading = false;
+          this.beforeLoading = false;
         }
-      }
-       else {
 
-        if (this.user) {
-          this.usersList.push(this.user);
+        this.allPage = (response.body.total) / this.defaultLimit;
+
+        this.usersList = response.body.users;
+
+        let index = this.usersList.findIndex((user: { id: number | undefined; }) => user.id == this.user?.id);
+
+        if (this._dataService.UpdateORAddUser == false) {
+          if (this.user) {
+            this.usersList[index] = this.user;
+          }
         }
-      }
-    });
+        else {
+          if (this.user) {
+            this.usersList.push(this.user);
+          }
+        }
+
+
+      });
+
   }
 
   OnDeleteUser(user: any) {
@@ -152,21 +104,41 @@ export class UsersTableComponent {
     this.router.navigate(['users-management/create']);
   }
 
-  skipUsers() {
+  nextPage() {
 
-    this.defaultSkip = this.defaultSkip + this.addLimit;
-    this.usersFunc();
+
+    this.defaultSkip += this.addLimit;
+    this.nextLoading = true;
+    this.getUsersApi();
+    this.pageNumber++;
+
 
   }
-  onSelected(): void {
+
+  beforePage() {
+
+    this.defaultSkip = this.defaultSkip - this.addLimit;
+    this.beforeLoading = true;
+    this.getUsersApi();
+    this.pageNumber--;
+
+
+  }
+  onSelected(value: Event): void {
+
     
-    this.addLimit = this.teams.nativeElement.value;
+    this.addLimit = +value;
     console.log(this.addLimit);
     
-    // console.log(this.defaultLimit);
+    this.defaultSkip = 0;
+
+    this.defaultLimit = this.addLimit;
+    this.pageNumber = 1;
+    this.getUsersApi();
+
+
 
   }
-
 
 
 }

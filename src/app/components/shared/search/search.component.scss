@@ -1,15 +1,14 @@
 
-
 .search{
     margin-bottom: auto;
-    background-color: #fff;
+    background-color: var(--pale_gray);
     height: 40px;
     border-radius: 30px;
 }
 
 .search-input{
 
-    color: white;
+    color:var(--pale_gray);
     border:0;
     outline: 0;
     background: none;
@@ -24,16 +23,15 @@
 .search .search-input{
     padding: 0 10px;
     width: 130px;
-    caret-color: #536bf6;
     font-size: 18px;
     font-weight: 300;
-    color: black;
+    color: var(--black);
     transition: width 0.4s linear;
 }
 
 .search:hover>.search-icon{
-    background:#e1dae7;
-    color:#473a8d;
+    background:var(--Lilac_color);
+    color:var(--second_purple);
     border-radius: 50px;
 }
 .search-icon{
@@ -45,7 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #473a8d;
+    color: var(--second_purple);
     font-size: larger;
 
 }
