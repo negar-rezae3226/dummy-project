@@ -1,42 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
-// @import '~@angular/material/theming';
 
-@import url("../src/assets/font/Vazir/Vazirmatn-font-face.css");
+
 @import './them.scss';
-@import './app/pages/account/login/login.component.scss';
-@import './app/pages/user/users-table/users-table.component.scss';
+@import url("../src/assets/font/Vazir/Vazirmatn-font-face.css");
+@import "./app/pages/account/login/login.component.scss";
+@import "./app/pages/user/users-table/users-table.component.scss";
 
-@import '@angular/material/theming';
+@import "@angular/material/theming";
 $custom-typography: mat-typography-config(
-  $font-family: 'Vazirmatn'
+  $font-family: "Vazirmatn",
 );
 
 @include angular-material-typography($custom-typography);
-$background: $white;
+
+
+
+
 
 body {
   font-family: Vazirmatn !important;
   margin: 0px;
-  background-color: $white;
+  background-color: var(--pale_gray);
   direction: rtl;
 }
-.app-header-style{
+.app-header-style {
   width: 100%;
 }
-.app-slidebar-style{
+.app-slidebar-style {
   height: 757px;
 }
 
-[mat-raised-button],[mat-dialog-content]{
+[mat-raised-button],
+[mat-dialog-content] {
   font-family: Vazirmatn !important;
 }
-.mat-mdc-form-field-required-marker{
+.mat-mdc-form-field-required-marker {
   padding-left: 5px;
 }
-.mat-badge-content{
+.mat-badge-content {
   font-size: 10px;
   font-family: Vazirmatn !important;
-
 }
 
 .mat-badge-medium.mat-badge-above .mat-badge-content {
@@ -49,7 +51,15 @@ body {
   height: 54px !important;
 }
 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button:disabled{
+    opacity: 0.5 ;
+}

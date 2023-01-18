@@ -1,10 +1,7 @@
-$header-bg-color: #fdfffc;
-$mellow-gray-color: #e9ecef;
-$gray-color: #6c757d;
+
 
 .navbar-style {
-  background-color: $header-bg-color;
-  // padding: 20px;
+  background-color: var(--white);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,13 +10,13 @@ $gray-color: #6c757d;
 
 .input-search-style {
   padding: 15px;
-  background-color: $mellow-gray-color;
+  background-color: var(--mellow-gray-color);
   border: unset;
   border-radius: 15px;
   // height: 30px;
 }
 .search-icone-style {
-  color: $gray-color;
+  color: var(--gray-color);
   margin-right: 13px;
   font-size: x-large;
   cursor: pointer;
@@ -27,14 +24,14 @@ $gray-color: #6c757d;
 .login-signin-styles {
   display: flex;
   flex-direction: row;
-  border: 1px solid $mellow-gray-color;
+  border: 1px solid var(--mellow-gray-color);
   border-radius: 10px;
   padding-top: 13px;
   margin-right: 930px;
 }
 
 .login-signin-styles:hover{
-    background-color: $mellow-gray-color;
+    background-color: var(--mellow-gray-color);
 }
 
 .header-login-style {
@@ -43,15 +40,15 @@ $gray-color: #6c757d;
 }
 
 .bell-style {
-  border: 1px solid $mellow-gray-color;
+  border: 1px solid var(--mellow-gray-color);
   padding: 13px 11px 10px 10px;
   border-radius: 40px;
   margin-left: 20px;
-  background-color: $mellow-gray-color;
+  background-color: var(--mellow-gray-color);
   height: 50px;
   width: 50px;
   font-size: 25px;
-  color: $gray-color;
+  color: var(--gray-color);
   cursor: pointer;
 }
 
@@ -67,15 +64,15 @@ $gray-color: #6c757d;
 }
 
 .flag-style {
-  border: 1px solid $mellow-gray-color;
+  border: 1px solid var(--mellow-gray-color);
   padding: 4px 4px 0px 10px;
   border-radius: 40px;
   margin-left: 20px;
-  background-color: $mellow-gray-color;
+  background-color: var(--mellow-gray-color);
   height: 50px;
   width: 50px;
   font-size: 25px;
-  color: $gray-color;
+  color: var(--gray-color);
   cursor: pointer;
 }
 .login-button-style{

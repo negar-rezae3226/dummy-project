@@ -1,16 +1,14 @@
-$red:#eb3c3f;
-$gray-color: #6c757d;
 
 .delete {
   font-size: 25px;
   padding-left: 5px;
-  color: $red;
+  color: var(--red);
   cursor: pointer;
   padding-left: 5px;
 }
 .delete-text{
   font-size: 15px;
   font-family: Vazirmatn !important;
-  color: $gray-color;
+  color: var(--gray-color);
   padding-right: 10px;
 }
