@@ -1,3 +1,4 @@
+
 .card-users-style {
   margin: 50px;
 }
@@ -7,24 +8,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: aliceblue;
-  background-color: #10002b;
+  color: var(--pale_gray);
+  background-color: var(--third_purple);
 }
 .create-user-button {
-  background-color: #9b5de5;
+  background-color: var(--forth_purple);
   height: 40px;
-  color: aliceblue;
+  color: var(--pale_gray);
   margin-right: 30px;
 }
 .users-table-style {
-  color: #10002b;
+  color: var(--third_purple);
 }
 .icon-style {
   padding-left: 5px;
   font-size: 18px;
 }
 .thead-color {
-  color: #473a8d;
+  color: var(--second_purple);
   tr {
     th {
       text-align: center;
@@ -33,7 +34,7 @@
   }
 }
 .tbody-color {
-  color: rgb(48, 48, 48);
+  color: var(--gray);
   tr {
     td {
       text-align: center;
@@ -46,23 +47,23 @@
 .edit {
   padding-left: 5px;
   font-size: 25px;
-  color: #390099;
+  color: var(--third_purple);
   cursor: pointer;
 }
 .details {
   padding-left: 5px;
   font-size: 25px;
-  color: #f17105;
+  color: var(--orang_color);
   cursor: pointer;
 }
 
 .table-body {
-  overflow-y: scroll;
-  height: 450px;
+  // overflow-y: scroll;
+  // height: 450px;
   width: 100%;
 }
 .mdc-tooltip__surface {
-  background-color: #9692af !important;
+  background-color: var(--Lilac_color) !important;
 }
 
 .not-found {
@@ -70,7 +71,7 @@
   padding-top: 110px;
   font-size: 30px;
   font-weight: 70px;
-  color: #473a8d;
+  color: var(--second_purple);
 }
 .table-notfound {
   width: 190px;
@@ -86,7 +87,7 @@
 .edit-details-text {
   font-size: 15px;
   font-family: Vazirmatn !important;
-  color: rgb(48, 48, 48);
+  color: var(--gray);
 }
 .table-title-style {
   padding-top: 9px;
@@ -101,9 +102,35 @@ table{
 }
 .skip-font-style{
   font-size: 20px;
-  color: #10002b;
+  color:var(--third_purple);
 }
 .form-control{
   width: unset !important;
 }
+.select-style{
+  padding: 5px 15px;
+  border-color: var(--mellow-gray);
+  border-radius: 5px;
+}
+.page-number-style{
+  padding-left:20px
+}
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+}
+.select-number{
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--white);
+    width: 70px;
+}
+.mat-mdc-select-min-line {
+  font-size: 15px;
+  padding-left: 13px;
+
+}
+}
+
+
 

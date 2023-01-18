@@ -1,5 +1,6 @@
 @import "../../../components/shared/input/input.component.scss";
 
+
 .login-style {
   background-image: url(../../../../assets/images/background-login.jpg);
   margin: 0px;
@@ -8,7 +9,7 @@
   font-family:Vazirmatn ;
 
   .input-text-style {
-    color: #342c5f !important;
+    color:var(--first_purple) !important;
     font-family: Vazirmatn !important;
   }
 
@@ -17,10 +18,10 @@
       padding: 9px !important;
       margin-bottom: 16px;
       font-size: 31px;
-      color: #342c5f;
+      color:var(--first_purple);
     }
     .mat-mdc-text-field-wrapper {
-      background-color: #a7a3bc;
+      background-color:var(--Lilac_color);
     }
 
     .mdc-text-field--outlined:not(
@@ -35,28 +36,28 @@
         .mdc-text-field--disabled
       ).mdc-text-field--focused
       .mdc-notched-outline__trailing {
-      border-color: #342c5f;
+      border-color:var(--first_purple);
     }
     .login{
       .mdc-notched-outline__leading {
-        border-color: #a7a3bc;
+        border-color:var(--Lilac_color);
       }
       .mdc-notched-outline__trailing {
-        border-color: #a7a3bc;
+        border-color:var(--Lilac_color);
       }
 
     }
     .loginpass{
       .mdc-notched-outline__leading {
-        border-color: #a7a3bc;
+        border-color:var(--Lilac_color);
       }
       .mdc-notched-outline__trailing {
-        border-color: #a7a3bc;
+        border-color:var(--Lilac_color);
       }
     }
 
     .mdc-text-field--outlined .mdc-text-field__input {
-      background-color: #a7a3bc;
+      background-color:var(--Lilac_color);
     }
     .mat-mdc-form-field-icon-suffix{
       padding: 0px 20px 0px 4px !important;
@@ -66,7 +67,7 @@
   .login-form-style {
     margin: 80px 550px 0px 550px;
     // background-image: url(../../../../assets/images/background-login.jpg);
-    background-color: #d7d3d7;
+    background-color:var(--mellow-pink);
     border-radius: 90px;
   }
   .form-style {
@@ -81,13 +82,13 @@
     //   margin: 8px 0;
     display: inline-block;
     box-sizing: border-box;
-    background-color: #a7a3bc;
-    color: #342c5f;
+    background-color:var(--Lilac_color);
+    color:var(--first_purple);
   }
 
   button {
-    background-color: #1a1631;
-    color: white;
+    background-color:var(--third_purple);
+    color:var(--pale_gray);
     padding: 14px 20px;
     //   margin: 8px 0;
     border: none;
@@ -140,28 +141,28 @@
     justify-content: space-between;
   }
   ::placeholder {
-    color: #342c5f;
+    color:var(--first_purple);
     opacity: 1;
   }
   .icon-input-style {
-    color: white;
-    background-color: #1a1631;
+    color:var(--pale_gray);
+    background-color:var(--third_purple);
   }
   .font-forget {
     font-size: 13px;
-    color: #342c5f;
+    color:var(--first_purple);
     cursor: pointer;
   }
   input[type="checkbox"] {
-    accent-color: #342c5f;
+    accent-color:var(--first_purple);
   }
 
   .form-control:focus {
-    background-color: #a7a3bc;
+    background-color:var(--Lilac_color);
   }
   .error-input{
 
-    color: red;
+    color:var(--red);
     font-size: 14px;
     padding-bottom: 10px;
   }

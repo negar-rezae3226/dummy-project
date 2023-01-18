@@ -22,8 +22,8 @@ export class UsersService {
   }
 
   limitAndSkipUsers(limit:number , skip:number) {
-    return this.http.get<any>(myGlobals.apiUrl + 'users?limit=' + `${limit}` + '&skip=' + `${skip}` + '&select=firstName,lastName,age,username,password,phone,email').pipe(
-      map(items => items.users)
+    return this.http.get<any>(myGlobals.apiUrl + 'users?limit=' + `${limit}` + '&skip=' + `${skip}` + '&select=firstName,lastName,age,username,password,phone,email',  {observe: "response"}).pipe(
+      // map(items => items.users)
     );
   }
 
