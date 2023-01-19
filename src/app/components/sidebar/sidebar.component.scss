@@ -45,13 +45,13 @@ nav.main-menu.expanded {
 .main-menu {
   background: var(--third_purple);
   //   border-right: 1px solid #e5e5e5;
-    // position: absolute;
+  // position: absolute;
   overflow: hidden;
   height: 100vh;
   top: 0;
   bottom: 0;
   // left: 0;
-    // width: 60px;
+  // width: 60px;
   height: 100%;
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
@@ -59,7 +59,7 @@ nav.main-menu.expanded {
   -webkit-transform: translateZ(0) scale(1, 1);
   z-index: 1000;
 }
-.navbarStyle{
+.navbarStyle {
   position: fixed;
   z-index: 1;
 }
@@ -111,7 +111,6 @@ nav.main-menu.expanded {
   bottom: 0;
 }
 
-
 .no-touch .scrollable.hover {
   overflow-y: hidden;
 }
@@ -141,30 +140,27 @@ nav li {
   padding: 0;
 }
 .main-menu li:hover > a,
-nav.main-menu  > a,
+nav.main-menu > a,
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
-.dropdown-menu> a,
-.dropdown-menu> a:hover,
-.dropdown-menu> a:focus,
+.dropdown-menu > a,
+.dropdown-menu > a:hover,
+.dropdown-menu > a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul a {
   // margin-top: 1px;
   color: var(--white);
-  background-color: var(--black);
+  background-color: var(--first_purple) !important;
   font-size: 15px;
   cursor: pointer;
 }
-.navbar-logo-style{
+.navbar-logo-style {
   width: 40px;
   height: 40px;
   border-radius: 70px;
-
-
 }
 
-.title-sideMenu{
-
+.title-sideMenu {
   color: var(--white);
   font-weight: 300px;
   font-size: 20px;
@@ -172,11 +168,10 @@ nav.main-menu  > a,
   border-bottom: 1px solid var(--first_purple);
   text-align: center;
 }
-.title-text{
+.title-text {
   padding-right: 10px;
   text-shadow: var(--first_purple) 1px 0 10px;
 }
-.active{
-  
-  background-color: var(--first_purple) !important;
+.active {
+  background-color: var(--black) !important;
 }
