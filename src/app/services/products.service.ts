@@ -1,3 +1,15 @@
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductsService {
+
+constructor() { }
+
+}
+
+
 import { Injectable } from '@angular/core';
 
 import { User } from '../models/user.interface';
@@ -63,3 +75,4 @@ export class UsersService {
 
 
 }
+

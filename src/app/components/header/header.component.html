@@ -1,10 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-style">
+<nav class="navbar navbar-expand-lg navbar-style" dir="ltr">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div id="navbarNav">
         <div class="d-flex justify-content-between">
             <div>
                 <ul class="navbar-nav">
@@ -12,7 +8,7 @@
                         <div class="d-flex ">
                             <div class="flag-style">
                                 <p>
-                                    <img src="../../../assets/images/iran-flag.png" alt="flag"
+                                    <img src="../../../assets/images/user-image.jpg" alt="flag"
                                         class="flag-iran rounded-circle">
                                 </p>
                             </div>
@@ -28,12 +24,19 @@
 
                                 </p>
                             </div>
+                            <div class="flag-style">
+                                <p>
+                                    <img src="../../../assets/images/iran-flag.png" alt="flag"
+                                        class="flag-iran rounded-circle">
+                                </p>
+                            </div>
                         </div>
                     </li>
                 </ul>
             </div>
             <div *ngIf="loginButton == true " class="login-signin-styles">
-                <div class="header-login-style d-flex justify-content-between" routerLinkActive="active-link" routerLink="login"> 
+                <div class="header-login-style d-flex justify-content-between" routerLinkActive="active-link"
+                    routerLink="login">
                     <div class="login-button-style">ورود</div>
                     <i class="mdi mdi-login-variant"></i>
                 </div>

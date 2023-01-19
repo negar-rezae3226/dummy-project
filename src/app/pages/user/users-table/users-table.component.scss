@@ -46,15 +46,15 @@
 }
 
 .edit {
-  padding-left: 5px;
+  padding-left: 15px;
   font-size: 25px;
-  color: var(--third_purple);
+  color:var(--first_purple);
   cursor: pointer;
 }
 .details {
-  padding-left: 5px;
+  padding-left: 15px;
   font-size: 25px;
-  color: var(--orang_color);
+  color: var(--first_purple);
   cursor: pointer;
 }
 
@@ -84,6 +84,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+
 }
 .edit-details-text {
   font-size: 15px;
@@ -119,7 +121,7 @@ table{
 
 select option:checked,
 select option:hover {
-    box-shadow: 0 0 10px 100px #000 inset;
+    box-shadow: 0 0 10px 100px var(--black) inset;
 }
 .select-number{
   .mdc-text-field--filled:not(.mdc-text-field--disabled) {
@@ -131,6 +133,11 @@ select option:hover {
   padding-left: 13px;
 
 }
+}
+.mat-mdc-menu-content {
+  padding: 16px 0 !important;
+  width: 140px !important;
+  height: 219px !important;
 }
 
 
