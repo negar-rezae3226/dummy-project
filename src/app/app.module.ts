@@ -6,8 +6,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RouterModule, Routes } from "@angular/router";
-import { LoginComponent } from './pages/account/login/login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
@@ -18,7 +16,6 @@ import { UserCreateComponent } from './pages/user/user-create/user-create.compon
 import { UserEditComponent } from './pages/user/user-edit/user-edit.component';
 import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
 import { UserPostsComponent } from './pages/user/user-posts/user-posts.component';
-import { ProductsManagementComponent } from './pages/products-management/products-management.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UsersTableComponent } from './pages/user/users-table/users-table.component';
 import { UserModule } from './pages/user/user.module';
@@ -31,6 +28,9 @@ import { DialogComponent } from './components/shared/delete-dialog/dialog/dialog
 import { ValidationComponent } from './pages/validation/validation.component';
 import { LocalStorageService } from './services/LocalStorage.service';
 import { AuthInterceptorServiceService } from './services/auth-interceptor-service.service';
+import { GanderDirective } from './directives/gander.directive';
+import { ProductsManagementComponent } from './pages/products-management/products-management.component';
+
 
 
 
@@ -55,7 +55,8 @@ import { AuthInterceptorServiceService } from './services/auth-interceptor-servi
     DialogComponent,
     InputComponent,
     SearchComponent,
-    ValidationComponent
+    ValidationComponent,
+    GanderDirective
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,7 @@
 // import { Component, OnInit } from '@angular/core';
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table'
+import {  Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { delay } from 'rxjs';
+
 import { User } from 'src/app/models/user.interface';
 import { DataService } from 'src/app/services/data.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -30,10 +27,11 @@ export class UsersTableComponent {
   allPage: number = 0;
   nextLoading: boolean = true;
   beforeLoading: boolean = true;
+  loader: boolean = true;
   numbers: any = [
-    {value: 5, viewValue: 5},
-    {value: 10, viewValue: 10},
-    {value: 20, viewValue: 20},
+    { value: 5, viewValue: 5 },
+    { value: 10, viewValue: 10 },
+    { value: 20, viewValue: 20 },
   ];
   selectedNumber = this.numbers[0].value;
 
@@ -64,6 +62,7 @@ export class UsersTableComponent {
         console.log(response.body.users);
 
         if (response.status == 200) {
+          this.loader = false;
           this.nextLoading = false;
           this.beforeLoading = false;
         }
@@ -126,10 +125,10 @@ export class UsersTableComponent {
   }
   onSelected(value: Event): void {
 
-    
+
     this.addLimit = +value;
     console.log(this.addLimit);
-    
+
     this.defaultSkip = 0;
 
     this.defaultLimit = this.addLimit;

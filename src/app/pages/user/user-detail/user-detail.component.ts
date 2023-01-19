@@ -13,6 +13,8 @@ export class UserDetailComponent {
   usersList: User[] = [];
   userId: any = {};
   selectUser: any = {};
+  loader:boolean=true;
+
 
   constructor(
     private active: ActivatedRoute,
@@ -20,11 +22,15 @@ export class UserDetailComponent {
   ) {}
 
   ngOnInit(): void {
-    // this.userId = this.active.params.subscribe(param => console.log(param))
-    this.userId = +this.active.snapshot.params['id'];
-    // console.log(this.userId);
 
-    this.UsersService.getSingleUser(this.userId).subscribe((response: User) => {
+setTimeout(() => {
+  this.loader=false;
+}, 2000);
+
+    this.userId = +this.active.snapshot.params['id'];
+
+
+    this.UsersService.getSingleUser(this.userId).subscribe((response: any) => {
       this.selectUser = response;
     });
   }

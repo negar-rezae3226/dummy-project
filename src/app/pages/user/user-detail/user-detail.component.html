@@ -1,82 +1,97 @@
-<div class="details-style">
-  <div>
-    <img src="{{ selectUser.image }}" class="pt-3 mt-3" />
-  </div>
-
-  <div class="pt-5">
-    <div class="user-detail-style">
-      <p class="title-details">نام:</p>
-      <p>{{ selectUser.firstName }}</p>
-    </div>
-
-    <div class="user-detail-style pt-1">
-      <p class="title-details">نام خانوادگی:</p>
-      <p>{{ selectUser.lastName }}</p>
-    </div>
-
-    <div class="user-detail-style pt-1">
-      <p class="title-details">سن:</p>
-      <p>{{ selectUser.age }}</p>
-    </div>
-
-    <div class="user-detail-style pt-1">
-      <p class="title-details">نام کاربری:</p>
-      <p>{{ selectUser.username }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">تاریخ تولد:</p>
-      <p>{{ selectUser.birthDate }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">آی پی:</p>
-      <p>{{ selectUser.ip }}</p>
-    </div>
-    <div class="user-detail-style pt-5">
-      <i class="mdi mdi-phone pl-2 pb-3"></i>
-      <p class="title-details">شماره تلفن:</p>
-      <p>{{ selectUser.phone }}</p>
-    </div>
-    <div class="user-detail-style">
-      <i class="mdi mdi-email pl-3 pb-3"></i>
-      <p class="title-details">ایمیل:</p>
-      <p>{{ selectUser.email }}</p>
-    </div>
-  </div>
-
-  <div class="pt-5">
-    <div class="user-detail-style pt-1">
-      <p class="title-details">شماره حساب:</p>
-      <p>{{ selectUser.bank.cardNumber }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">شغل:</p>
-      <p>{{ selectUser.company.department }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">جنسیت:</p>
-      <p>{{ selectUser.gender }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">گروه خونی :</p>
-      <p>{{ selectUser.bloodGroup }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">وزن :</p>
-      <p>{{ selectUser.weight }}</p>
-    </div>
-    <div class="user-detail-style pt-1">
-      <p class="title-details">قد :</p>
-      <p>{{ selectUser.height }}</p>
-    </div>
-    <div class="user-detail-style pt-5">
-      <i class="mdi mdi-map-marker pl-3 pb-3"></i>
-      <p class="title-details">آدرس:</p>
-      <p>{{ selectUser.address.address }}</p>
-    </div>
-    <div class="user-detail-style">
-      <i class="mdi mdi-post pl-3 pb-3"></i>
-      <p class="title-details">کد پستی:</p>
-      <p>{{ selectUser.address.postalCode }}</p>
-    </div>
+<div class="d-flex justify-content-center align-items-center align-content-center">
+  <div  *ngIf="loader;else show" class="spinner-grow text-secondary" role="status" style="width: 3rem; height: 3rem; margin-top: 270px; margin-right: 100px; ">
   </div>
 </div>
+
+
+<ng-template #show>
+  <div class="card card-stye" style="width: 70rem;">
+    <div class="card-body">
+      <div class="card-text">
+        <div class="details-style">
+          <div>
+            <img src="{{ selectUser.image }}" class="pt-3 mt-3" />
+          </div>
+        
+          <div class="pt-5">
+            <div class="user-detail-style">
+              <p class="title-details">نام:</p>
+              <p>{{ selectUser.firstName }}</p>
+            </div>
+        
+            <div class="user-detail-style pt-1">
+              <p class="title-details">نام خانوادگی:</p>
+              <p>{{ selectUser.lastName }}</p>
+            </div>
+        
+            <div class="user-detail-style pt-1">
+              <p class="title-details">سن:</p>
+              <p>{{ selectUser.age }}</p>
+            </div>
+        
+            <div class="user-detail-style pt-1">
+              <p class="title-details">نام کاربری:</p>
+              <p>{{ selectUser.username }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">تاریخ تولد:</p>
+              <p>{{ selectUser.birthDate }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">آی پی:</p>
+              <p>{{ selectUser.ip }}</p>
+            </div>
+            <div class="user-detail-style pt-5">
+              <i class="mdi mdi-phone pl-2 pb-3"></i>
+              <p class="title-details">شماره تلفن:</p>
+              <p>{{ selectUser.phone }}</p>
+            </div>
+            <div class="user-detail-style">
+              <i class="mdi mdi-email pl-3 pb-3"></i>
+              <p class="title-details">ایمیل:</p>
+              <p>{{ selectUser.email }}</p>
+            </div>
+          </div>
+        
+          <div class="pt-5">
+            <div class="user-detail-style pt-1">
+              <p class="title-details">شماره حساب:</p>
+              <p>{{ selectUser.bank.cardNumber }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">شغل:</p>
+              <p>{{ selectUser.company.department }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">جنسیت:</p>
+              <p>{{ selectUser.gender }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">گروه خونی :</p>
+              <p>{{ selectUser.bloodGroup }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">وزن :</p>
+              <p>{{ selectUser.weight }}</p>
+            </div>
+            <div class="user-detail-style pt-1">
+              <p class="title-details">قد :</p>
+              <p>{{ selectUser.height }}</p>
+            </div>
+            <div class="user-detail-style pt-5">
+              <i class="mdi mdi-map-marker pl-3 pb-3"></i>
+              <p class="title-details">آدرس:</p>
+              <p>{{ selectUser.address.address }}</p>
+            </div>
+            <div class="user-detail-style">
+              <i class="mdi mdi-post pl-3 pb-3"></i>
+              <p class="title-details">کد پستی:</p>
+              <p>{{ selectUser.address.postalCode }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

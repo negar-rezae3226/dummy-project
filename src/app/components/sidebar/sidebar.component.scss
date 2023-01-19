@@ -141,18 +141,19 @@ nav li {
   padding: 0;
 }
 .main-menu li:hover > a,
-nav.main-menu li.active > a,
+nav.main-menu  > a,
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus,
+.dropdown-menu> a,
+.dropdown-menu> a:hover,
+.dropdown-menu> a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
-.dashboard-page nav.dashboard-menu ul li.active a {
-  margin-top: 2px;
+.dashboard-page nav.dashboard-menu ul a {
+  // margin-top: 1px;
   color: var(--white);
   background-color: var(--black);
   font-size: 15px;
+  cursor: pointer;
 }
 .navbar-logo-style{
   width: 40px;
@@ -174,4 +175,8 @@ nav.main-menu li.active > a,
 .title-text{
   padding-right: 10px;
   text-shadow: var(--first_purple) 1px 0 10px;
+}
+.active{
+  
+  background-color: var(--first_purple) !important;
 }

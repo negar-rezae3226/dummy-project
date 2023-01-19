@@ -27,7 +27,7 @@ export class UserEditComponent {
 
 
     this.UsersService.getSingleUser(this.userId).subscribe(
-      (response: User) => { this.selectedUser = response }
+      (response:any) => { this.selectedUser = response }
       )
   }
 }
