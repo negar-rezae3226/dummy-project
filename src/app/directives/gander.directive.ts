@@ -1,25 +1,36 @@
-import { Directive, Input } from '@angular/core';
-
-export enum gender {
-  male = 'male' , 
-  female = 'female'
-}
+import { Directive, ElementRef, Input } from '@angular/core';
+import { Gender } from '../models/gender.interface';
 
 @Directive({
-  selector: '[GanderDirective]'
+  selector: '[GanderDirective]',
 })
- 
-
-
 export class GanderDirective {
+  @Input('GanderDirective') userGender!: Gender;
 
-@Input() userGender:any = gender;
+  constructor(private element: ElementRef<HTMLElement>) {}
 
-
-  constructor() { 
-console.log(this.userGender.female);
-
+  ngOnInit() {
+    this.element.nativeElement.className = this.genderIcon();
   }
-  
 
+  genderIcon(): any {
+    let classList = "mdi";
+    console.log(Gender.male);
+    
+    
+    switch (this.userGender) {
+      
+      case Gender.male:
+        classList += ' mdi-gender-male text-primary';
+        break;
+        
+        case Gender.female:
+        classList += " mdi-gender-female text-danger";
+        break;
+
+      default:
+        break;
+    }
+    return classList;
+  }
 }
