@@ -30,6 +30,7 @@ import { LocalStorageService } from './services/LocalStorage.service';
 import { AuthInterceptorServiceService } from './services/auth-interceptor-service.service';
 import { GanderDirective } from './directives/gander.directive';
 import { ProductsManagementComponent } from './pages/products-management/products-management.component';
+import { ProductsTableComponent } from './pages/products-management/products-table/products-table.component';
 
 
 
@@ -56,7 +57,8 @@ import { ProductsManagementComponent } from './pages/products-management/product
     InputComponent,
     SearchComponent,
     ValidationComponent,
-    GanderDirective
+    GanderDirective,
+    ProductsTableComponent
   ],
   imports: [
     BrowserModule,
