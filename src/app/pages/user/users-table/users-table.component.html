@@ -34,16 +34,16 @@
               *ngIf="usersList?.length !== 0; else elseCond"
             >
               <tr>
-                <th scope="col">نام</th>
-                <th scope="col">نام خانوادگی</th>
-                <th scope="col">سن</th>
-                <th scope="col">سال تولد</th>
-                <th scope="col">جنسیت</th>
-                <th scope="col">نام کاربری</th>
-                <th scope="col">رمز عبور</th>
-                <th scope="col">شماره تلفن</th>
-                <th scope="col">ایمیل</th>
-                <th scope="col"></th>
+                <th scope="col" class="table-header-style">نام</th>
+                <th scope="col"  class="table-header-style">نام خانوادگی</th>
+                <th scope="col" class="table-header-style">سن</th>
+                <th scope="col" class="table-header-style">سال تولد</th>
+                <th scope="col" class="table-header-style">جنسیت</th>
+                <th scope="col" class="table-header-style">نام کاربری</th>
+                <th scope="col" class="table-header-style">رمز عبور</th>
+                <th scope="col" class="table-header-style">شماره تلفن</th>
+                <th scope="col" class="table-header-style">ایمیل</th>
+                <th scope="col" class="table-header-style"></th>
               </tr>
             </thead>
             <tbody class="tbody-color">
@@ -51,18 +51,18 @@
                 *ngFor="let user of usersList; let i = index"
                 [attr.id]="user.id"
               >
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>{{ user.age }}</td>
-                <td>{{ user.birthDate }}</td>
+                <td class="table-body-style">{{ user.firstName }}</td>
+                <td class="table-body-style">{{ user.lastName }}</td>
+                <td class="table-body-style">{{ user.age }}</td>
+                <td class="table-body-style">{{ user.birthDate | date }}</td>
 
-                <td>
+                <td class="table-body-style">
                   <i [GanderDirective]="user.gender"></i>
                 </td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td dir="ltr">{{ user.phone }}</td>
-                <td>{{ user.email }}</td>
+                <td class="table-body-style">{{ user.username }}</td>
+                <td class="table-body-style">{{ user.password }}</td>
+                <td dir="ltr" class="table-body-style">{{ user.phone }}</td>
+                <td class="table-body-style">{{ user.email }}</td>
                 <td>
                   <button
                     mat-icon-button

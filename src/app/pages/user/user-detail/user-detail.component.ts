@@ -13,7 +13,7 @@ export class UserDetailComponent {
   usersList: User[] = [];
   userId: any = {};
   selectUser: any = {};
-  loader:boolean=true;
+  // loader:boolean=true;
 
 
   constructor(
@@ -23,12 +23,7 @@ export class UserDetailComponent {
 
   ngOnInit(): void {
 
-setTimeout(() => {
-  this.loader=false;
-}, 2000);
-
     this.userId = +this.active.snapshot.params['id'];
-
 
     this.UsersService.getSingleUser(this.userId).subscribe((response: any) => {
       this.selectUser = response;

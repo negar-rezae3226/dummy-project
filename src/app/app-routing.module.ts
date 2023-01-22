@@ -12,21 +12,32 @@ import { LoginComponent } from './pages/account/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserCreateComponent } from './pages/user/user-create/user-create.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { ResolverService } from './services/resolver.service';
 
 
 const routes: Routes = [
-    { path: '', component: DashboardComponent },
-    {path: 'users-management', component: UsersManagementComponent},
-    { path: 'users-management/create', component: UserCreateComponent },
-    { path: 'users-management/edit/:id', component: UserEditComponent },
-    { path: 'users-management/detail/:id', component: UserDetailComponent },
-    { path: 'products-management', component: ProductsManagementComponent,canActivate : [AuthGuardGuard] },
-    { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: DashboardComponent , canActivate : [AuthGuardGuard] },
-    { path: 'not-found', component: NotFoundComponent },
-    { path: '**', redirectTo: 'not-found' }
-
-
+  { path: '', component: DashboardComponent },
+  { path: 'users-management', component: UsersManagementComponent },
+  { path: 'users-management/create', component: UserCreateComponent },
+  { path: 'users-management/edit/:id', component: UserEditComponent },
+  {
+    path: 'users-management/detail/:id',
+    component: UserDetailComponent,
+    resolve: { products: ResolverService },
+  },
+  {
+    path: 'products-management',
+    component: ProductsManagementComponent,
+    canActivate: [AuthGuardGuard],
+  },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardGuard],
+  },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({
