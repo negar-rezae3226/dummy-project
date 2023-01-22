@@ -22,9 +22,19 @@ export class UsersService {
   }
 
   limitAndSkipUsers(limit:number , skip:number) {
-    return this.http.get<any>(myGlobals.apiUrl + 'users?limit=' + `${limit}` + '&skip=' + `${skip}` + '&select=firstName,lastName,age,username,password,phone,email,gender,',  {observe: "response"}).pipe(
+    return this.http
+      .get<any>(
+        myGlobals.apiUrl +
+          'users?limit=' +
+          `${limit}` +
+          '&skip=' +
+          `${skip}` +
+          '&select=firstName,lastName,age,username,password,phone,email,gender,birthDate',
+        { observe: 'response' }
+      )
+      .pipe
       // map(items => items.users)
-    );
+      ();
   }
 
   deleteUser(userId: number) {

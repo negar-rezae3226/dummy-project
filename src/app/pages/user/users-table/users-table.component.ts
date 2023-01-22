@@ -60,6 +60,7 @@ export class UsersTableComponent {
 
 
         console.log(response.body.users);
+        
 
         if (response.status == 200) {
           this.loader = false;
@@ -70,6 +71,8 @@ export class UsersTableComponent {
         this.allPage = (response.body.total) / this.defaultLimit;
 
         this.usersList = response.body.users;
+        console.log(this.usersList[1].birthDate);
+
 
         let index = this.usersList.findIndex((user: { id: number | undefined; }) => user.id == this.user?.id);
 
