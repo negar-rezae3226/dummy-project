@@ -1,20 +1,17 @@
 // import { Component, OnInit } from '@angular/core';
-import {  Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from 'src/app/models/user.interface';
 import { DataService } from 'src/app/services/data.service';
 import { UsersService } from 'src/app/services/users.service';
 
-
 @Component({
   selector: 'app-users-table',
   templateUrl: './users-table.component.html',
   styleUrls: ['./users-table.component.scss'],
 })
-
 export class UsersTableComponent {
-
   usersList: any;
   deleteProduct: User[] = [];
   element: any;
@@ -40,10 +37,9 @@ export class UsersTableComponent {
     private router: Router,
     private route: ActivatedRoute,
     private _dataService: DataService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
     this._dataService.sharedParam.subscribe((user) => {
       if (user) {
         this.user = user;
@@ -52,15 +48,11 @@ export class UsersTableComponent {
     this.getUsersApi();
   }
 
-
   getUsersApi() {
-
-    this.userService.limitAndSkipUsers(this.defaultLimit, this.defaultSkip)
+    this.userService
+      .limitAndSkipUsers(this.defaultLimit, this.defaultSkip)
       .subscribe((response) => {
-
-
         console.log(response.body.users);
-        
 
         if (response.status == 200) {
           this.loader = false;
@@ -68,28 +60,24 @@ export class UsersTableComponent {
           this.beforeLoading = false;
         }
 
-        this.allPage = (response.body.total) / this.defaultLimit;
+        this.allPage = response.body.total / this.defaultLimit;
 
         this.usersList = response.body.users;
-        console.log(this.usersList[1].birthDate);
 
-
-        let index = this.usersList.findIndex((user: { id: number | undefined; }) => user.id == this.user?.id);
+        let index = this.usersList.findIndex(
+          (user: { id: number | undefined }) => user.id == this.user?.id
+        );
 
         if (this._dataService.UpdateORAddUser == false) {
           if (this.user) {
             this.usersList[index] = this.user;
           }
-        }
-        else {
+        } else {
           if (this.user) {
             this.usersList.push(this.user);
           }
         }
-
-
       });
-
   }
 
   OnDeleteUser(user: any) {
@@ -107,28 +95,19 @@ export class UsersTableComponent {
   }
 
   nextPage() {
-
-
     this.defaultSkip += this.addLimit;
     this.nextLoading = true;
     this.getUsersApi();
     this.pageNumber++;
-
-
   }
 
   beforePage() {
-
     this.defaultSkip = this.defaultSkip - this.addLimit;
     this.beforeLoading = true;
     this.getUsersApi();
     this.pageNumber--;
-
-
   }
   onSelected(value: Event): void {
-
-
     this.addLimit = +value;
     console.log(this.addLimit);
 
@@ -137,13 +116,5 @@ export class UsersTableComponent {
     this.defaultLimit = this.addLimit;
     this.pageNumber = 1;
     this.getUsersApi();
-
-
-
   }
-
-
 }
-
-
-
