@@ -1,18 +1,7 @@
 
-
-@Injectable({
-  providedIn: 'root'
-})
-export class ProductsService {
-
-constructor() { }
-
-}
-
-
 import { Injectable } from '@angular/core';
 
-import { User } from '../models/user.interface';
+import { Product } from '../models/product.interface';
 import { Observable, map } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
 import { LocalStorageService } from './LocalStorage.service';
@@ -20,53 +9,53 @@ import * as myGlobals from '../../global';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class ProductsService {
 
 
   constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
 
 
-  getAllUsers():Observable<User> {
+  getAllUsers():Observable<Product> {
 
-    return this.http.get<any>(myGlobals.apiUrl + 'users').pipe(
-      map(items => items.users)
+    return this.http.get<any>(myGlobals.apiUrl + 'products').pipe(
+      map(items => items.products)
     );
   }
 
   limitAndSkipUsers(limit:number , skip:number) {
-    return this.http.get<any>(myGlobals.apiUrl + 'users?limit=' + `${limit}` + '&skip=' + `${skip}` + '&select=firstName,lastName,age,username,password,phone,email,gender,',  {observe: "response"}).pipe(
-      // map(items => items.users)
+    return this.http.get<any>(myGlobals.apiUrl + 'products?limit=' + `${limit}` + '&skip=' + `${skip}`,  {observe: "response"}).pipe(
+
     );
   }
 
   deleteUser(userId: number) {
 
-    return this.http.delete<any>(myGlobals.apiUrl + 'users/' + `${userId}`);
+    return this.http.delete<any>(myGlobals.apiUrl + 'products/' + `${userId}`);
   }
 
   searchUsers(inputValue: any) {
   
-    return this.http.get<any>(myGlobals.apiUrl + `users/search?q=${inputValue}`).pipe(
-      map(items => items.users)
+    return this.http.get<any>(myGlobals.apiUrl + `products/search?q=${inputValue}`).pipe(
+      map(items => items.products)
     );
   }
 
   getSingleUser(userId: number) {
 
-    return this.http.get<any>(myGlobals.apiUrl + `users/${userId}`);
+    return this.http.get<any>(myGlobals.apiUrl + `products/${userId}`);
   }
 
-  editUser(userId: number, user: User) {
+  editUser(userId: number, user: Product) {
 
-    return this.http.put<any>(myGlobals.apiUrl + `users/${userId}`, user, {
+    return this.http.put<any>(myGlobals.apiUrl + `products/${userId}`, user, {
       observe: "response"
     })
 
   }
 
-  addNewUser(user: User) {
+  addNewUser(user: Product) {
 
-    return this.http.post<any>(myGlobals.apiUrl + 'users/add', user, {
+    return this.http.post<any>(myGlobals.apiUrl + 'products/add', user, {
       observe: 'response'
     });
 
@@ -75,4 +64,3 @@ export class UsersService {
 
 
 }
-

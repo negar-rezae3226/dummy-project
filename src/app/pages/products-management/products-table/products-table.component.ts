@@ -1,25 +1,22 @@
-// import { Component, OnInit } from '@angular/core';
 import {  Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { User } from 'src/app/models/user.interface';
+import { Product } from 'src/app/models/product.interface';
 import { DataService } from 'src/app/services/data.service';
-import { UsersService } from 'src/app/services/users.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 
 @Component({
-  selector: 'app-users-table',
-  templateUrl: './users-table.component.html',
-  styleUrls: ['./users-table.component.scss'],
+  selector: 'app-products-table',
+  templateUrl: './products-table.component.html',
+  styleUrls: ['./products-table.component.scss']
 })
-
-export class UsersTableComponent {
-
+export class ProductsTableComponent {
   usersList: any;
-  deleteProduct: User[] = [];
+  deleteProduct: Product[] = [];
   element: any;
-  searchUser: User[] = [];
-  user?: User;
+  searchUser: Product[] = [];
+  user?: Product;
   defaultLimit: number = 5;
   addLimit: number = 5;
   pageNumber: number = 1;
@@ -36,7 +33,7 @@ export class UsersTableComponent {
   selectedNumber = this.numbers[0].value;
 
   constructor(
-    private userService: UsersService,
+    private productService: ProductsService,
     private router: Router,
     private route: ActivatedRoute,
     private _dataService: DataService
@@ -55,12 +52,11 @@ export class UsersTableComponent {
 
   getUsersApi() {
 
-    this.userService.limitAndSkipUsers(this.defaultLimit, this.defaultSkip)
+    this.productService.limitAndSkipUsers(this.defaultLimit, this.defaultSkip)
       .subscribe((response) => {
 
 
-        console.log(response.body.users);
-        
+        console.log(response.body.products);
 
         if (response.status == 200) {
           this.loader = false;
@@ -70,9 +66,7 @@ export class UsersTableComponent {
 
         this.allPage = (response.body.total) / this.defaultLimit;
 
-        this.usersList = response.body.users;
-        console.log(this.usersList[1].birthDate);
-
+        this.usersList = response.body.products;
 
         let index = this.usersList.findIndex((user: { id: number | undefined; }) => user.id == this.user?.id);
 
@@ -86,8 +80,6 @@ export class UsersTableComponent {
             this.usersList.push(this.user);
           }
         }
-
-
       });
 
   }
@@ -97,7 +89,7 @@ export class UsersTableComponent {
     this.element.parentElement.removeChild(this.element);
   }
   onSearchUser(e: string) {
-    this.userService.searchUsers(e).subscribe((response: User[]) => {
+    this.productService.searchUsers(e).subscribe((response: Product[]) => {
       this.usersList = response;
     });
   }
@@ -142,8 +134,4 @@ export class UsersTableComponent {
 
   }
 
-
 }
-
-
-

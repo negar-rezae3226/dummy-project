@@ -8,6 +8,7 @@ export interface User{
     password?:string;
     username?:string;
     id?:number;
-    configPassword?:string
+    configPassword?:string;
+    birthDate?:string
 }
 
